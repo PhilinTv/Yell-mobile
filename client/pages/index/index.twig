@@ -1,0 +1,34 @@
+{% set deps = getClientFiles('form') %}
+
+<div class="index">
+    <div class="index__section index__section_main">
+        {% include deps.views.form with {block: {
+            items: [
+                {
+                    type: 'text',
+                    icon: {
+                        name: 'search',
+                        position: 'left'
+                    },
+                    attrs: [
+                        name: 'place',
+                        placeholder: 'Найти',
+                        required: true
+                    ],
+                    autocomplete: true
+                },
+                {
+                    type: 'text',
+                    icon: {
+                        name: 'location',
+                        position: 'left'
+                    },
+                    attrs: [
+                        name: 'location',
+                        required: true
+                    ]
+                }
+            ]
+        }} %}
+    </div>
+</div>

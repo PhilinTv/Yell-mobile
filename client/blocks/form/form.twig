@@ -1,0 +1,11 @@
+{% set deps = getClientFiles('form') %}
+
+<form class="form">
+    {% for item in block.items %}
+        <div class="form__row">
+            <div class="form__item form__item_type_{{ item.type }}">
+                {% include deps.views.input with {block: item} %}
+            </div>
+        </div>
+    {% endfor %}
+</form>

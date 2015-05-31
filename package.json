@@ -1,0 +1,29 @@
+{
+  "name": "Whotrades",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/panda-crox/Whotrades.git"
+  },
+  "author": "Salavat Dautov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/panda-crox/Whotrades/issues"
+  },
+  "homepage": "https://github.com/panda-crox/Whotrades",
+  "dependencies": {
+    "express": "^4.12.3",
+    "i18n": "^0.5.0",
+    "merge": "^1.2.0",
+    "moment": "^2.10.2",
+    "nib": "^1.1.0",
+    "socket.io": "^1.3.5",
+    "stylus": "^0.50.0",
+    "twig": "^0.8.2"
+  }
+}

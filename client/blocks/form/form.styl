@@ -1,0 +1,63 @@
+.form
+    padding 0
+    margin 0
+
+    &__header
+        &_type_default
+            padding 20px 30px 0
+
+
+    &__body
+        padding 20px 30px
+
+
+    &__footer
+        &_bg_gray
+            background $light
+            border-top 1px solid $gray-light
+            padding 20px 30px
+
+
+    &__row
+        margin-top 10px
+        &:first-child
+            margin-top 0
+
+
+    &__item
+        position relative
+
+        &-msg
+            display inline-block
+            min-height 12px
+            min-width 1px
+            margin-bottom 5px
+            float right
+            font-size 11px
+            visibility hidden
+
+        &-hint
+            margin-top 3px
+            font-size 12px
+            color #777
+
+        &_valid
+            &_false
+                .input__element
+                    border-color $red
+                .form__item-msg
+                    visibility visible
+                    color $red
+
+            &_true
+                .form__item-icon
+                    visibility visible
+
+
+    &__msg
+        margin-top 15px
+        display none
+
+    &_valid_false &__msg
+        display block
+        color $red

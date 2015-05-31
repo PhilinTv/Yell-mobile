@@ -1,0 +1,64 @@
+.input
+    display block
+    position relative
+    
+    
+    &__element
+        width 100%
+        font-family inherit
+        color $dark
+        background $white
+        resize none
+        border none
+        border-radius 2px
+        box-sizing border-box
+
+        &:focus
+            outline none
+            
+            
+    &__icon
+        position absolute
+        top 0
+        height 100%
+        
+        &_position
+            &_left
+                left 0
+                
+            &_right
+                right 0
+                
+        .icon
+            absolute left 15% top 15%
+            width 70%
+            height 70%
+        
+                        
+    &_width_full
+        display block
+
+
+    &_size
+        &_l
+            input
+                height 44px
+                padding 13px
+                font-size 16px
+
+            textarea
+                height 148px
+                padding 13px
+                font-sze 16px
+
+            select
+                padding 13px 0 13px 13px
+
+            option
+                padding 13px
+                
+            &.input_indent_left .input__element
+                padding-left 44px
+                
+            .input__icon
+                width 44px

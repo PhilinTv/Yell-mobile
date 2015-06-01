@@ -3,12 +3,14 @@ var express = require('express'),
     http = require('http').createServer(app),
     fs = require('fs'),
     path = require('path'),
-    twig = require('twig'),
     i18n = require('i18n'),
     moment = require('moment'),
     io = require('socket.io')(http),
     builder = require('./builder'),
-    twigFolder = './server/twig/';
+    ECT = require('ect'),
+    ectRenderer = ECT({ watch: true, root: __dirname + '/client', ext: '.ect'}),
+    helpers = {},
+    helpersPath = './server/helpers/';
 
 
 // App configure
@@ -17,7 +19,8 @@ app
     .set('config', require('./configs/config'))
     .set('port', process.env.PORT || 3000)
     .set('views', path.join(__dirname, 'client'))
-    .set('view engine', 'twig')
+    .set('view engine', 'ect')
+    .engine('ect', ectRenderer.render)
     /*.use(express.static(path.join(__dirname, 'client')))*/;
 
 
@@ -29,17 +32,12 @@ i18n.configure({
 });
 
 
-// Twig extensions
-fs.readdirSync(twigFolder).forEach(function(file) {
+// Helpers
+fs.readdirSync(helpersPath).forEach(function(file) {
     var _file = file.split('.'),
-        filePath = twigFolder + file;
+        filePath = helpersPath + file;
     
-    if (_file[0] == 'function') {
-        twig.extendFunction(_file[1], require(filePath));
-    }
-    else if (_file[0] == 'filter') {
-        twig.extendFilter(_file[1], require(filePath));
-    }
+    helpers[_file[0]] = require(filePath);
 });
 
 
@@ -64,6 +62,7 @@ app.all('*', function  (req, res, next) {
         app.locals.Config = app.get('config');
         app.locals.Request = req;
         app.locals.Lang = lang;
+        app.locals.Helpers = helpers;
         
         res.render('layouts/main/main', {view: view, data: data});
     }

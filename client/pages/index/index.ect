@@ -1,8 +1,8 @@
-{% set deps = getClientFiles('form') %}
+<% @indexDeps = @Helpers.getDeps('index') %>
 
 <div class="index">
     <div class="index__section index__section_main">
-        {% include deps.views.form with {block: {
+        <% @form = {
             items: [
                 {
                     type: 'text',
@@ -29,6 +29,7 @@
                     ]
                 }
             ]
-        }} %}
+        } %>
+        <% include @indexDeps.views.form %>
     </div>
 </div>

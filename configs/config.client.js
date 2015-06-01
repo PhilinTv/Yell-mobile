@@ -24,7 +24,7 @@ module.exports = {
     common: {
         styles: ['common.styl'],
         scripts: ['common.js'],
-        view: 'common.twig',
+        view: 'common.ect',
         deps: ['modernizr', 'angularjs', 'jquery', 'jquery.bem', 'requirejs',
                'svg', 'icon', 'link', 'button', 'input', 'form', 'logo', 'header', 'footer']
     },
@@ -32,51 +32,51 @@ module.exports = {
     // Pages
     index: {
         styles: ['index.styl'],
-        view: 'index.twig',
+        view: 'index.ect',
         deps: ['form']
     },
     
     // Blocks
     svg: {
-        view: 'svg.twig'
+        view: 'svg.ect'
     },
     icon: {
         styles: ['icon.styl'],
-        view: 'icon.twig'
+        view: 'icon.ect'
     },
     link: {
         styles: ['link.styl'],
-        view: 'link.twig'
+        view: 'link.ect'
     },
     button: {
         styles: ['button.styl'],
-        view: 'button.twig',
+        view: 'button.ect',
         deps: ['icon']
     },
     input: {
         styles: ['input.styl'],
         scripts: ['input.js'],
-        view: 'input.twig',
+        view: 'input.ect',
         deps: ['icon']
     },
     form: {
         styles: ['form.styl'],
         scripts: ['form.js'],
-        view: 'form.twig',
+        view: 'form.ect',
         deps: ['icon', 'input', 'button']
     },
     logo: {
         styles: ['logo.styl'],
-        view: 'logo.twig'
+        view: 'logo.ect'
     },
     header: {
         styles: ['header.styl'],
         scripts: ['header.js'],
-        view: 'header.twig',
+        view: 'header.ect',
         deps: ['icon', 'link', 'logo', 'form']
     },
     footer: {
         styles: ['footer.styl'],
-        view: 'footer.twig'
+        view: 'footer.ect'
     }
 }

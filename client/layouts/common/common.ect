@@ -1,4 +1,4 @@
-{% set deps = getClientFiles(['common', view]) %}
+<% @commonDeps = @Helpers.getDeps(['common', @view]) %>
 
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
@@ -11,20 +11,18 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
         <title>Yell mobile</title>
         
-        {% for i in deps.styles %}
-            {% for j in i %}
-                <link rel="stylesheet" href="{{ j }}">
-            {% endfor %}
-        {% endfor %}
+        <% for k, v of @commonDeps.styles : %>
+            <link rel="stylesheet" href="<%- v %>">
+        <% end %>
     </head>
     <body>
-        {% include deps.views.svg %}
-        {% include deps.views.header %}
+        <% include @commonDeps.views.svg %>
+        <% include @commonDeps.views.header %>
         
-        {% include deps.views[view] %}
+        <% include @commonDeps.views[@view] %>
         
-        {% for i in deps.scripts %}
-            <script src="{{ i }}"></script>
-        {% endfor %}
+        <% for k, v of @commonDeps.scripts : %>
+            <script src="<%- v %>"></script>
+        <% end %>
     </body>
 </html>

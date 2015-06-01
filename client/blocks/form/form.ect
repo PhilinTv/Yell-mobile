@@ -1,0 +1,12 @@
+<% @formDeps = @Helpers.getDeps('form') %>
+
+<form class="form">
+    <% for item in @form.items : %>
+        <div class="form__row">
+            <div class="form__item form__item_type_<%- item.type %>">
+            	<% @input = item %>
+            	<% include @formDeps.views.input %>
+            </div>
+        </div>
+    <% end %>
+</form>

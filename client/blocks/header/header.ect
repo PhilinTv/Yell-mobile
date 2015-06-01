@@ -1,11 +1,12 @@
-{% set deps = getClientFiles('header') %}
+<% @headerDeps = @Helpers.getDeps('header') %>
 
 <div class="header">
     <div class="header__bar header__bar_horizontal">
-        {% include deps.views.logo with {block: {
+        <% @logo = {
             mix: ['header__logo']
-        }} %}
-        
+        } %>
+        <% include @headerDeps.views.logo %>
+
         <div class="header__icon-burger">
             <span class="icon-burger"></span>
         </div>

@@ -55,7 +55,7 @@ Builder.prototype.collect = function (arr, collection) {
 };
 
 
-Builder.prototype.getClientFiles = function (arg) {
+Builder.prototype.getDeps = function (arg) {
     var _this = this,
         arg = (arg instanceof Array) ? arg : [arg],
         collection = this.collect(arg),

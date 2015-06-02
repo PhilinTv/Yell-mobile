@@ -21,6 +21,10 @@
         
         <% include @commonDeps.views[@view] %>
         
+        <% for k, v of @Helpers.getDeps('base').scripts : %>
+            <script src="<%- v %>"></script>
+        <% end %>
+        
         <% for k, v of @commonDeps.scripts : %>
             <script src="<%- v %>"></script>
         <% end %>

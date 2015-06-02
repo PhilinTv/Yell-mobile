@@ -1,4 +1,4 @@
-module.exports = function (name, obj) {
+module.exports = function (name, obj, asArray) {
 	var attrs = '',
         cssClass;
 	
@@ -26,5 +26,5 @@ module.exports = function (name, obj) {
         }
     }
 
-    return attrs;
+    return asArray ? obj.attrs: attrs;
 };

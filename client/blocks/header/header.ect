@@ -1,5 +1,10 @@
 <% @headerDeps = @Helpers.getDeps('header') %>
 
+<% @header = @header || {} %>
+<% @header.attrs = @header.attrs || {} %>
+<% @header.attrs['data-ng-controller'] = 'Header' %>
+
+
 <div <%- @Helpers.generateAttrs('header', @header) %>>
     <div class="header__bar header__bar_horizontal">
         <% @logo = {
@@ -10,8 +15,8 @@
         } %>
         <% include @headerDeps.views.logo %>
 
-        <div class="header__icon-burger">
-            <span class="icon-burger"></span>
+        <div class="header__icon-burger" data-ng-click="toggleMenu()">
+            <span class="icon-burger" data-ng-class="menuIsOpened ? 'is-opened' : ''"></span>
         </div>
     </div>
 </div>

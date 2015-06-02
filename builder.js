@@ -45,11 +45,12 @@ Builder.prototype.collect = function (arr, collection) {
     arr.forEach(function (name) {
         if (_this.configClient[name] && !collection[name]) {
             var item = _this.configClient[name];
+            
+            collection[name] = item;
 
             if (item.deps) {
                 collection = _this.collect(item.deps, collection);
             }
-            collection[name] = item;
         }
     });
     

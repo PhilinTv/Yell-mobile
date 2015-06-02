@@ -21,12 +21,15 @@ module.exports = {
     },
 	
     // Layouts
+    base: {
+        deps: ['modernizr', 'angularjs', 'jquery', 'jquery.bem', 'requirejs']
+    },
+    
     common: {
         styles: ['common.styl'],
         scripts: ['common.js'],
         view: 'common.ect',
-        deps: ['modernizr', 'angularjs', 'jquery', 'jquery.bem', 'requirejs',
-               'svg', 'icon', 'link', 'button', 'input', 'form', 'heading', 'logo', 'header', 'footer']
+        deps: ['svg', 'icon', 'link', 'button', 'input', 'form', 'heading', 'logo', 'header', 'footer']
     },
     
     // Pages
@@ -34,7 +37,7 @@ module.exports = {
         styles: ['index.styl'],
         scripts: ['index.js'],
         view: 'index.ect',
-        deps: ['form']
+        deps: ['search']
     },
     
     // Blocks
@@ -68,6 +71,12 @@ module.exports = {
     },
     heading: {
         styles: ['heading.styl']
+    },
+    search: {
+        styles: ['search.styl'],
+        scripts: ['search.js'],
+        view: 'search.ect',
+        deps: ['form']
     },
     logo: {
         styles: ['logo.styl'],

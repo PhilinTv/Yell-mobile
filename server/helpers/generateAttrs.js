@@ -1,22 +1,24 @@
 module.exports = function (name, obj) {
-	var attrs = '';
+	var attrs = '',
+        cssClass;
 	
+    obj = obj || {};
     obj.attrs = obj.attrs || {};
-    obj.attrs.class = [name];
+    cssClass = [name];
 
     if (obj.mods instanceof Object) {
     	for (var i in obj.mods) {
             if (obj.mods[i] !== false) {
-        		obj.attrs.class.push(name + '_' + i + (obj.mods[i] === true ? '' : '_' + obj.mods[i]));
+        		cssClass.push(name + '_' + i + (obj.mods[i] === true ? '' : '_' + obj.mods[i]));
             }
     	}
     }
 
     if (obj.mix instanceof Array) {
-    	obj.attrs.class = obj.attrs.class.concat(obj.mix);
+    	cssClass = cssClass.concat(obj.mix);
     }
 
-    console.log(obj.attrs);
+    obj.attrs.class = cssClass.join(' ');
 
     for (var i in obj.attrs) {
         if (obj.attrs[i] !== false) {

@@ -1,35 +1,61 @@
 <% @indexDeps = @Helpers.getDeps('index') %>
 
-<div class="index">
-    <div class="index__section index__section_main">
-        <% @form = {
-            items: [
-                {
-                    type: 'text',
-                    icon: {
-                        name: 'search',
-                        position: 'left'
-                    },
-                    attrs: [
-                        name: 'place',
-                        placeholder: 'Найти',
-                        required: true
-                    ],
-                    autocomplete: true
-                },
-                {
-                    type: 'text',
-                    icon: {
-                        name: 'location',
-                        position: 'left'
-                    },
-                    attrs: [
-                        name: 'location',
-                        required: true
-                    ]
-                }
-            ]
-        } %>
-        <% include @indexDeps.views.form %>
-    </div>
+<% @index = @index || {} %>
+<% @index.attrs = @index.attrs || {} %>
+<% @index.attrs['data-ng-controller'] = 'Index' %>
+
+
+<div <%- @Helpers.generateAttrs('index', @index) %>>
+	<div class="index__section index__section_main" style="min-height: {{ sectionMainHeight }}px;">
+		<div class="index__search">
+			<h2 class="heading heading_2">Поиск среди<br>1 450 057 отзывов</h2>
+
+			<% @form = {
+				items: [
+					{
+						type: 'text',
+						icon: {
+							name: 'search',
+							position: 'left'
+						},
+						attrs: {
+							name: 'place',
+							placeholder: 'Найти',
+							required: true,
+							autocomplete: 'off',
+							'data-autocomplete': true
+						}
+					},
+					{
+						type: 'text',
+						icon: {
+							name: 'location',
+							position: 'left'
+						},
+						attrs: {
+							name: 'location',
+							placeholder: 'Где',
+							required: true,
+							autocomplete: 'off',
+							'data-autocomplete': true
+						},
+						mods: {
+							theme: 'blue-light'
+						}
+					},
+					{
+						type: 'button',
+						text: 'Найти',
+						attrs: {
+							type: 'submit'
+						},
+						mods: {
+							theme: 'red-light'
+						}
+					}
+				]
+			} %>
+			<% include @indexDeps.views.form %>
+		</div>
+	</div>
 </div>

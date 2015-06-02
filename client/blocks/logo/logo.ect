@@ -1,5 +1,5 @@
 <% @logoDeps = @Helpers.getDeps('logo') %>
 
-<a class="logo" href="/">
+<a <%- @Helpers.generateAttrs('logo', @logo) %>>
     <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64"><defs><filter id="a" x="-50%" y="-50%" width="200%" height="200%"><feOffset dy="1" in="SourceAlpha" result="shadowOffset1"/><feGaussianBlur stdDeviation="2" in="shadowOffset1" result="shadowBlur1"/><feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0" in="shadowBlur1" result="shadowMatrix1"/><feMerge><feMergeNode in="shadowMatrix1"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><path d="M35.792 22.507l2.875-6.117h8.612l-9.413 17.93v10.565h-9.887v-10.565l-5.262-10.023-4.164-7.907h8.612l5.751 12.193 2.875-6.076zm12.383 28.306s5.995 6.415 9.304 7.365c3.309.949-.949-10.85-.949-10.85 1.899-5.669 3.784-25.024 2.604-30.923-1.18-5.9-5.588-5.696-13.712-7.31-8.26-1.655-29.052-2.604-33.555-2.36-4.489.231-7.785 3.296-7.324 9.44.475 6.13 7.663 28.97 11.23 34.64 3.553 5.669 8.802 4.679 11.935 4.299 4.299-.529 20.466-4.299 20.466-4.299zm0 0" fill="#fff" fill-rule="evenodd" filter="url(#a)"/></svg>
 </a>

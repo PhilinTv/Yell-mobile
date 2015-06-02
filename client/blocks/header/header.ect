@@ -1,8 +1,11 @@
 <% @headerDeps = @Helpers.getDeps('header') %>
 
-<div class="header">
+<div <%- @Helpers.generateAttrs('header', @header) %>>
     <div class="header__bar header__bar_horizontal">
         <% @logo = {
+            attrs: {
+                href: '/'
+            },
             mix: ['header__logo']
         } %>
         <% include @headerDeps.views.logo %>

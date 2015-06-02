@@ -1,5 +1,5 @@
 <% @iconDeps = @Helpers.getDeps('icon') %>
 
-<svg class="icon" viewBox="0 0 64 64" width="64" height="64">
+<svg <%- @Helpers.generateAttrs('icon', @icon) %> viewBox="0 0 64 64" width="64" height="64">
     <use xlink:href="#icon-<%- @icon.name %>"></use>
 </svg>

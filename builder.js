@@ -19,7 +19,8 @@ Builder = function () {
     
     this.render = {
         styl: function (filePath) {
-            var str = fs.readFileSync(_this.clientPathFull + filePath, 'utf8');
+            var dirPath = filePath.slice(0, filePath.lastIndexOf('/')),
+                str = fs.readFileSync(_this.clientPathFull + filePath, 'utf8');
             
             return stylus(str)
                 .use(nib())
@@ -27,6 +28,7 @@ Builder = function () {
                 .include(_this.clientPathFull + '/_addons/stylus/')
                 .import('variables')
                 .import('mixins')
+                .define('$dir-path', dirPath)
                 .render();
         },
         js: function (filePath) {
@@ -43,11 +45,11 @@ Builder.prototype.collect = function (arr, collection) {
     arr.forEach(function (name) {
         if (_this.configClient[name] && !collection[name]) {
             var item = _this.configClient[name];
-            collection[name] = item;
 
             if (item.deps) {
                 collection = _this.collect(item.deps, collection);
             }
+            collection[name] = item;
         }
     });
     

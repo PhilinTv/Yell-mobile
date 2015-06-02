@@ -1,12 +1,13 @@
 .input
-    display block
+    display inline-block
     position relative
+    color $gray-dark
     
     
     &__element
         width 100%
         font-family inherit
-        color $dark
+        color inherit
         background $white
         resize none
         border none
@@ -63,3 +64,8 @@
                 
             .input__icon
                 width 44px
+                
+
+    &_theme
+        &_blue-light
+            color $blue-light

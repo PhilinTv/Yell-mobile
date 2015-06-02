@@ -1,16 +1,23 @@
 <% @inputDeps = @Helpers.getDeps('input') %>
 
+<% @input.attrs = @input.attrs || {} %>
 <% @input.mods = @input.mods || {} %>
+<% @input.mods.size = @input.mods.size || 'l' %>
+<% @input.mods.width = @input.mods.width || 'full' %>
 <% if @input.icon : %>
     <% @input.mods.indent = @input.icon.position %>
 <% end %>
+<% @input.attrs.type = @input.attrs.type || 'text' %>
 
-<label class="input input_size_l input_width_full">
-    <input class="input__element" type="text">
-    <% if @input.icon : %>
-        <span class="input__icon input__icon_position_<%- @input.icon.position %>">
-            <% @icon = @input.icon %>
-            <% include @inputDeps.views.icon %>
-        </span>
-    <% end %>
-</label>
+
+<div <%- @Helpers.generateAttrs('input', @input) %>>
+	<label>
+	    <input class="input__element" type="text">
+	    <% if @input.icon : %>
+	        <span class="input__icon input__icon_position_<%- @input.icon.position %>">
+	            <% @icon = @input.icon %>
+	            <% include @inputDeps.views.icon %>
+	        </span>
+	    <% end %>
+    </label>
+</div>

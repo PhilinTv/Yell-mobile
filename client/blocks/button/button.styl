@@ -1,7 +1,7 @@
 .button
     display inline-block
     font-family inherit
-    line-height 1.1
+    line-height 1
     text-decoration none
     text-align center
     cursor pointer
@@ -26,7 +26,7 @@
     &_size
         &_l
             height 44px
-            padding 13px
+            padding 12px
             font-size 16px
 
             .button__icon
@@ -48,11 +48,8 @@
 
 
     &_theme
-        &_red
-            button-theme-mixin($red)
-
-        &_blue
-            button-theme-mixin($blue)
+        &_red-light
+            button-theme-mixin($red-light)
 
 
     &__text

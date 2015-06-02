@@ -1,11 +1,21 @@
 <% @formDeps = @Helpers.getDeps('form') %>
 
-<form class="form">
+<% @form.attrs = @form.attrs || {} %>
+<% @form.attrs.method = @form.attrs.method || 'post' %>
+<% @form.attrs.enctype = @form.attrs.enctype || 'multipart/form-data' %>
+
+
+<form <%- @Helpers.generateAttrs('form', @form) %>>
     <% for item in @form.items : %>
         <div class="form__row">
             <div class="form__item form__item_type_<%- item.type %>">
-            	<% @input = item %>
-            	<% include @formDeps.views.input %>
+        		<% if @Helpers.inArray(item.type, ['submit', 'button']) : %>
+            		<% @button = item %>
+            		<% include @formDeps.views.button %>
+        		<% else : %>
+            		<% @input = item %>
+            		<% include @formDeps.views.input %>
+        		<% end %>
             </div>
         </div>
     <% end %>

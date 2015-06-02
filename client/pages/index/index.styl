@@ -1,8 +1,22 @@
 .index
-    &__section
-        padding 0 15px
-        
-        &_main
-            min-height 500px
-            background url('img/index-bg.png') 0 0 no-repeat
-            background-size cover
+	&__section
+		padding 15px
+		
+		&_main
+			position relative
+			min-height 500px
+			color $white
+			background url($dir-path + '/img/index-bg.png') 0 0 no-repeat
+			background-size cover
+			box-sizing border-box
+			
+	
+	&__search
+		absolute left 15px right 15px bottom 15px
+		
+		.input__element
+			box-shadow 0 1px 2px rgba($black, .2)
+			
+		.button
+			margin-top 80px
+			box-shadow 0 2px 2px rgba($black, .2)

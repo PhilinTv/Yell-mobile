@@ -26,12 +26,13 @@ module.exports = {
         scripts: ['common.js'],
         view: 'common.ect',
         deps: ['modernizr', 'angularjs', 'jquery', 'jquery.bem', 'requirejs',
-               'svg', 'icon', 'link', 'button', 'input', 'form', 'logo', 'header', 'footer']
+               'svg', 'icon', 'link', 'button', 'input', 'form', 'heading', 'logo', 'header', 'footer']
     },
     
     // Pages
     index: {
         styles: ['index.styl'],
+        scripts: ['index.js'],
         view: 'index.ect',
         deps: ['form']
     },
@@ -64,6 +65,9 @@ module.exports = {
         scripts: ['form.js'],
         view: 'form.ect',
         deps: ['icon', 'input', 'button']
+    },
+    heading: {
+        styles: ['heading.styl']
     },
     logo: {
         styles: ['logo.styl'],

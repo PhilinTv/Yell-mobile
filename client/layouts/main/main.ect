@@ -1,11 +1,11 @@
 <% @getDepsViews = (name) -> %>
-    <% @deps = @Helpers.getDeps(name) %>
-    
-    <% for k, v of @deps.views : %>
-        <% if k != name : %>
-            <% include v %>
-        <% end %>
-    <% end %>
+	<% @deps = @Helpers.getDeps(name) %>
+	
+	<% for k, v of @deps.views : %>
+		<% if k != name : %>
+			<% include v %>
+		<% end %>
+	<% end %>
 <% end %>
 
 <% include @Helpers.getDeps('common').views.common %>

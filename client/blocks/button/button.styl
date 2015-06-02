@@ -1,63 +1,64 @@
 .button
-    display inline-block
-    font-family inherit
-    line-height 1
-    text-decoration none
-    text-align center
-    cursor pointer
-    border-radius 2px
-    box-sizing border-box
-    user-select none
-    transition .1s
+	display inline-block
+	font-family $font-family
+	font-weight 700
+	line-height 1
+	text-decoration none
+	text-align center
+	cursor pointer
+	border-radius 2px
+	box-sizing border-box
+	user-select none
+	transition .1s
 
 
-    &:hover
-    &:focus
-    &:active
-        text-decoration none
-        outline none
+	&:hover
+	&:focus
+	&:active
+		text-decoration none
+		outline none
 
 
-    &:disabled
-        cursor default
-        opacity .4
-            
+	&:disabled
+		cursor default
+		opacity .4
+			
 
-    &_size
-        &_l
-            height 44px
-            padding 12px
-            font-size 16px
+	&_size
+		&_l
+			height 44px
+			padding 12px
+			font-size 16px
 
-            .button__icon
-                width 20px
-                height 20px
-            
-        &_xl
-            height 50px
-            padding 15px
-            font-size 16px
+			.button__icon
+				width 20px
+				height 20px
+			
+		&_xl
+			height 50px
+			padding 15px
+			font-size 16px
 
-            .button__icon
-                width 20px
-                height 20px
-
-
-    &_width_full
-        width 100%
+			.button__icon
+				width 20px
+				height 20px
 
 
-    &_theme
-        &_red-light
-            button-theme-mixin($red-light)
+	&_width_full
+		width 100%
 
 
-    &__text
-        display inline-block
-        vertical-align middle
+	&_theme
+		&_red-light
+			button-theme-mixin($red-light)
 
 
-    &__icon
-        display inline-block
-        vertical-align middle
-        fill currentColor
+	&__text
+		display inline-block
+		vertical-align middle
+
+
+	&__icon
+		display inline-block
+		vertical-align middle
+		fill currentColor

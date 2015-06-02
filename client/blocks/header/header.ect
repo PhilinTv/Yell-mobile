@@ -6,17 +6,17 @@
 
 
 <div <%- @Helpers.generateAttrs('header', @header) %>>
-    <div class="header__bar header__bar_horizontal">
-        <% @logo = {
-            attrs: {
-                href: '/'
-            },
-            mix: ['header__logo']
-        } %>
-        <% include @headerDeps.views.logo %>
+	<div class="header__bar header__bar_horizontal">
+		<% @logo = {
+			attrs: {
+				href: '/'
+			},
+			mix: ['header__logo']
+		} %>
+		<% include @headerDeps.views.logo %>
 
-        <div class="header__icon-burger" data-ng-click="toggleMenu()">
-            <span class="icon-burger" data-ng-class="menuIsOpened ? 'is-opened' : ''"></span>
-        </div>
-    </div>
+		<div class="header__icon-menu" data-ng-click="toggleMenu()">
+			<span class="header__icon-menu-lines header__icon-menu-lines_{{ menuIsOpened ? 'close' : 'burger' }}"></span>
+		</div>
+	</div>
 </div>

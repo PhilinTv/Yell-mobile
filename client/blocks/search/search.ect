@@ -18,10 +18,10 @@
 				},
 				options: {
 					autocomplete: {
-	                    url: 'http://www.yell.ru/moscow/search/suggest-title/',
-	                    queryParam: 'text',
-	                    dropdownTpl: 'place-dropdown-tpl'
-	                }
+						url: 'http://www.yell.ru/moscow/search/suggest-title/',
+						queryParam: 'text',
+						dropdownTpl: 'place-dropdown-tpl'
+					}
 				}
 			},
 			{
@@ -41,10 +41,10 @@
 				},
 				options: {
 					autocomplete: {
-	                    url: 'http://www.yell.ru/moscow/search/suggest-location/',
-	                    queryParam: 'text',
-	                    dropdownTpl: 'location-dropdown-tpl'
-	                }
+						url: 'http://www.yell.ru/moscow/search/suggest-location/',
+						queryParam: 'text',
+						dropdownTpl: 'location-dropdown-tpl'
+					}
 				}
 			},
 			{
@@ -62,16 +62,16 @@
 	<% include @searchDeps.views.form %>
 
 	<script type="text/ng-template" id="place-dropdown-tpl">
-	    <ul data-ng-if="autocomplete.result.category || autocomplete.result.others" class="search__dropdown">
-	    	<li data-ng-repeat="item in autocomplete.result.category track by $index" class="search__dropdown-item" id="{{ item.id }}" data-type="category" data-url="{{ item.humanUrl }}">
-		    	<span class="search__dropdown-icon" data-icon="{{ item.icon }}"></span>
-		    	<span class="search__dropdown-name">{{ item.name }}</span>
-		    </li>
-		    <li data-ng-repeat="item in autocomplete.result.others track by $index" class="search__dropdown-item" data-type="other" id="{{ item.id }}">
-		    	<span class="search__dropdown-name">{{ item.name }}</span>
-		    	<span class="search__dropdown-review-count">{{ item.reviewCount }}</span>
-		    	<span class="search__dropdown-rating">{{ item.score }}</span>
-		    </li>
+		<ul data-ng-if="autocomplete.result.category || autocomplete.result.others" class="search__dropdown">
+			<li data-ng-repeat="item in autocomplete.result.category track by $index" class="search__dropdown-item" id="{{ item.id }}" data-type="category" data-url="{{ item.humanUrl }}">
+				<span class="search__dropdown-icon" data-icon="{{ item.icon }}"></span>
+				<span class="search__dropdown-name">{{ item.name }}</span>
+			</li>
+			<li data-ng-repeat="item in autocomplete.result.others track by $index" class="search__dropdown-item" data-type="other" id="{{ item.id }}">
+				<span class="search__dropdown-name">{{ item.name }}</span>
+				<span class="search__dropdown-review-count">{{ item.reviewCount }}</span>
+				<span class="search__dropdown-rating">{{ item.score }}</span>
+			</li>
 		</ul>
 	</script>
 </div>

@@ -19,6 +19,9 @@ module.exports = {
     'jquery.inputmask': {
         scripts: ['jquery.inputmask.min.js']
     },
+    'jquery.nicescroll': {
+        scripts: ['jquery.nicescroll.min.js']
+    },
 	
     // Layouts
     base: {
@@ -37,7 +40,7 @@ module.exports = {
         styles: ['index.styl'],
         scripts: ['index.js'],
         view: 'index.ect',
-        deps: ['search']
+        deps: ['search', 'categories']
     },
     
     // Blocks
@@ -80,7 +83,8 @@ module.exports = {
     },
     logo: {
         styles: ['logo.styl'],
-        view: 'logo.ect'
+        view: 'logo.ect',
+        deps: ['icon']
     },
     header: {
         styles: ['header.styl'],
@@ -91,5 +95,11 @@ module.exports = {
     footer: {
         styles: ['footer.styl'],
         view: 'footer.ect'
+    },
+    categories: {
+        styles: ['categories.styl'],
+        scripts: ['categories.js'],
+        view: 'categories.ect',
+        deps: ['icon', 'jquery.nicescroll']
     }
 }

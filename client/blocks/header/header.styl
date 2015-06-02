@@ -1,59 +1,59 @@
 .header
-    height 60px
-    
-    &__bar
-        &_horizontal
-            height 40px
-            padding 10px 0
-            text-align center
-            position relative
-            background-color $red
-            box-shadow 0 2px 0 darken($red, 40%)
-            
-            
-            
-    &__icon-burger
-        absolute left 10px top 50%
-        margin-top -10px
-        padding 5px
-        width 18px
-        height 12px
-        cursor pointer
-        
-        
-.icon-burger
-    relative top 50%
-    float left
-    margin-top -1px
-    width 100%
-    height 2px
-    background-color $white
-    transition .3s
-    
-    &:before, &:after
-        content ''
-        position absolute
-        left 0
-        width 100%
-        height 100%
-        background-color $white
-        transition .3s
+	height 60px
+	
+	&__bar
+		&_horizontal
+			height 40px
+			padding 10px 0
+			text-align center
+			position relative
+			background-color $red
+			box-shadow 0 2px 0 darken($red, 40%)
+			
+			
+			
+	&__icon-menu
+		absolute left 10px top 50%
+		margin-top -10px
+		padding 5px
+		width 18px
+		height 12px
+		cursor pointer
+		
+		
+		&-lines
+			relative top 50%
+			float left
+			margin-top -1px
+			width 100%
+			height 2px
+			background-color $white
+			transition .3s
+			
+			&:before, &:after
+				content ''
+				position absolute
+				left 0
+				width 100%
+				height 100%
+				background-color $white
+				transition .3s
+				
+			&:before
+				top -5px
 
-    &:before
-        top -5px
-
-    &:after
-        top 5px
-        
-    &.is-opened
-        background-color transparent
-        
-        &:before, &:after
-          transform-origin 50% 50%
-          top 0
-        
-        &:before
-            transform rotate3d(0, 0, 1, -45deg)
-            
-        &:after
-            transform rotate3d(0, 0, 1, 45deg)
+			&:after
+				top 5px
+				
+			&_close
+				background-color transparent
+				
+				&:before, &:after
+					transform-origin 50% 50%
+					top 0
+				
+				&:before
+					transform rotate3d(0, 0, 1, -45deg)
+					
+				&:after
+					transform rotate3d(0, 0, 1, 45deg)

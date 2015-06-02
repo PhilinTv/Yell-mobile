@@ -6,17 +6,17 @@
 
 
 <form <%- @Helpers.generateAttrs('form', @form) %>>
-    <% for item in @form.items : %>
-        <div class="form__row">
-            <div class="form__item form__item_type_<%- item.type %>">
-        		<% if @Helpers.inArray(item.type, ['submit', 'button']) : %>
-            		<% @button = item %>
-            		<% include @formDeps.views.button %>
-        		<% else : %>
-            		<% @input = item %>
-            		<% include @formDeps.views.input %>
-        		<% end %>
-            </div>
-        </div>
-    <% end %>
+	<% for item in @form.items : %>
+		<div class="form__row">
+			<div class="form__item form__item_type_<%- item.type %>">
+				<% if @Helpers.inArray(item.type, ['submit', 'button']) : %>
+					<% @button = item %>
+					<% include @formDeps.views.button %>
+				<% else : %>
+					<% @input = item %>
+					<% include @formDeps.views.input %>
+				<% end %>
+			</div>
+		</div>
+	<% end %>
 </form>

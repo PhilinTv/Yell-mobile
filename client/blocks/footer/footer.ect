@@ -1,0 +1,52 @@
+<% @footerDeps = @Helpers.getDeps('footer') %>
+
+<div <%- @Helpers.generateAttrs('footer', @footer) %>>
+	<div class="footer__bar">
+		<div class="footer__collumns">
+			<div class="footer__collumn">
+				<div class="footer__collumn-title">Владельцам бизнеса</div>
+				<p>
+					<% @button = {
+						text: 'ДОБАВИТЬ КОМПАНИЮ',
+						attrs: {
+							type: 'button'
+						},
+						mods: {
+							size: 'xl',
+							theme: 'dark',
+							width: 'full'
+						}
+					} %>
+					<% include @footerDeps.views.button %>
+				</p>
+				<p>
+					<% @button = {
+						text: 'YELL BUSINESS',
+						attrs: {
+							type: 'button'
+						},
+						mods: {
+							size: 'xl',
+							theme: 'dark',
+							width: 'full'
+						}
+					} %>
+					<% include @footerDeps.views.button %>
+				</p>
+			</div>
+
+			<% for collumn in @footerNav : %>
+				<div class="footer__collumn">
+					<div class="footer__collumn-title"><%- collumn.title %></div>
+					<ul class="footer__collumn-nav">
+						<% for item in collumn.items : %>
+							<li class="footer__collumn-nav-item">
+								<a href="<%- item.url %>"><%- item.caption %></a>
+							</li>
+						<% end %>
+					</ul>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>

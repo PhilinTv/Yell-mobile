@@ -1,10 +1,10 @@
 .button
 	display inline-block
 	font-family $font-family
-	font-weight 700
 	line-height 1
 	text-decoration none
 	text-align center
+	white-space nowrap
 	cursor pointer
 	border-radius 2px
 	box-sizing border-box
@@ -25,9 +25,18 @@
 			
 
 	&_size
+		&_m
+			height 40px
+			padding 8px 10px
+			font-size 16px
+
+			.button__icon
+				width 20px
+				height 20px
+				
 		&_l
 			height 44px
-			padding 12px
+			padding 11px
 			font-size 16px
 
 			.button__icon
@@ -36,7 +45,7 @@
 			
 		&_xl
 			height 50px
-			padding 15px
+			padding 14px
 			font-size 16px
 
 			.button__icon
@@ -49,8 +58,14 @@
 
 
 	&_theme
+		&_red
+			button-theme-mixin($red)
+			
 		&_red-light
 			button-theme-mixin($red-light)
+			
+		&_dark
+			button-theme-mixin($dark)
 
 
 	&__text
@@ -61,4 +76,3 @@
 	&__icon
 		display inline-block
 		vertical-align middle
-		fill currentColor

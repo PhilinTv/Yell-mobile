@@ -14,36 +14,47 @@
 	</div>
 	
 	<div class="index__section index__section_categories">
+        <% @categories = @data.categories %>
 		<% include @indexDeps.views.categories %>
 	</div>
 
-	<div class="index__section index__section_interesting">
+	<div class="index__section index__section_guides">
 		<h2 class="heading heading_2">Интересные путеводители</h2>
-		<% @interesting = {
-			items: [
-				{
-					image: 'http://image2.yell.ru/imager/OWFlZTc0OTljZmM2MjA5MzI2N/526x250/responses/5/6/6/r_613148_201_zzdc6le6oi9c0wbv_1431621463.jpg',
-					title: 'В какой музей пойти ночью 16 мая?',
-					text: '"Ночь в музее" - это не то, что мы рекомендуем, это то, что никак нельзя пропустить! Более 250 музеев, галерей и арт-пространств - бесплатно и допоздна! Разумеется, пересказать всю программу ночи просто невозможно, мы выбрали для вас несколько музеев, полагаясь на вкус наших пользователей. А мы ему доверяем.;)',
-					date: '26 мая 2015 г.'
-				}
-			]
-		} %>
-		<div class="index__interesting">
-			<div class="index__interesting-items">
-				<% for item in @interesting.items : %>
-					<div class="index__interesting-item">
-						<div class="index__interesting-item-block">
-							<div class="index__interesting-item-image" style="background-image: url('<%- item.image %>')"></div>
-							<div class="index__interesting-item-body">
-								<h3 class="heading heading_3 index__interesting-item-title"><%- item.title %></h3>
-								<div class="index__interesting-item-text"><%- item.text %></div>
-								<div class="index__interesting-item-date"><%- item.date %></div>
-							</div>
-						</div>
-					</div>
-				<% end %>
-			</div>
-		</div>
+        
+		<% @guides = @data.guides %>
+		<% include @indexDeps.views.guides %>
+	</div>
+
+	<a class="index__download-app" href="/">
+		<img src="/pages/index/img/download-app.bg.png">
+		<h3 class="heading heading_3 index__download-app-title">Скачайте наше<br>мобильное приложение</h3>
+	</a>
+
+	<div class="index__section index__section_events">
+		<h2 class="heading heading_2">События компаний</h2>
+        
+		<% @events = @data.events %>
+		<% include @indexDeps.views.events %>
+	</div>
+
+	<div class="index__section index__section_videos">
+		<h2 class="heading heading_2">Видео компаний</h2>
+        
+		<% @videos = @data.videos %>
+		<% include @indexDeps.views.videos %>
+	</div>
+
+	<div class="index__section index__section_affiche">
+		<h2 class="heading heading_2">Афиша</h2>
+        
+		<% @affiche = @data.affiche %>
+		<% include @indexDeps.views.affiche %>
+	</div>
+
+	<div class="index__section index__section_affiche">
+		<h2 class="heading heading_2">Отзывы</h2>
+        
+		<% @reviews = @data.reviews %>
+		<% include @indexDeps.views.reviews %>
 	</div>
 </div>

@@ -64,6 +64,7 @@ app.all('*', function  (req, res, next) {
 		app.locals.Request = req;
 		app.locals.Lang = lang;
 		app.locals.Helpers = helpers;
+        app.locals.footerNav = require('./data/footerNav');
 		
 		res.render('layouts/main/main', {view: view, data: data});
 	}
@@ -92,7 +93,14 @@ app.get(/\.(js|css|png|jpg|gif|svg|eot|ttf|woff|woff2)$/, function (req, res, ne
 
 
 app.get('/', function (req, res, next) {
-	res.render('index', {});
+	res.render('index', {
+        categories: require('./data/categories'),
+        guides: require('./data/guides'),
+        events: require('./data/events'),
+        videos: require('./data/videos'),
+        affiche: require('./data/affiche'),
+        reviews: require('./data/reviews')
+    });
 });
 
 

@@ -1,52 +1,15 @@
 <% @categoriesDeps = @Helpers.getDeps('categories') %>
 
-<% @categories = {
-	items: [
-		{
-			name: 'Авто, мото',
-			icon: 'restaurants'
-		},
-		{
-			name: 'Красота и здоровье',
-			icon: 'shoping'
-		},
-		{
-			name: 'Строительство',
-			icon: 'restaurants'
-		},
-		{
-			name: 'Промышленность и производство',
-			icon: 'shoping'
-		},
-		{
-			name: 'Услуги',
-			icon: 'restaurants'
-		},
-		{
-			name: 'Шопинг',
-			icon: 'shoping'
-		},
-		{
-			name: 'Рестораны',
-			icon: 'restaurants'
-		},
-		{
-			name: 'Медицина и наука',
-			icon: 'shoping'
-		}
-	]
-} %>
-
 <div <%- @Helpers.generateAttrs('categories', @categories) %>>
 	<div class="categories__items">
-		<% for item in @categories.items : %>
+		<% for item in @categories : %>
 			<div class="categories__item">
-				<a class="categories__item-block" href="">
+				<a class="categories__item-block" href="<%- item.url %>">
 					<span class="categories__item-icon">
 						<% @icon = {name: item.icon } %>
 						<% include @inputDeps.views.icon %>
 					</span>
-					<span class="categories__item-name"><%- item.name %></span>
+					<span class="categories__item-name"><%- item.title %></span>
 				</a>
 			</div>
 		<% end %>

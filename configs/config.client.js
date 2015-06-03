@@ -40,7 +40,7 @@ module.exports = {
         styles: ['index.styl'],
         scripts: ['index.js'],
         view: 'index.ect',
-        deps: ['search', 'categories']
+        deps: ['search', 'categories', 'guides', 'events', 'videos', 'affiche', 'reviews']
     },
     
     // Blocks
@@ -94,12 +94,41 @@ module.exports = {
     },
     footer: {
         styles: ['footer.styl'],
-        view: 'footer.ect'
+        view: 'footer.ect',
+        deps: ['button']
     },
     categories: {
         styles: ['categories.styl'],
         scripts: ['categories.js'],
         view: 'categories.ect',
-        deps: ['icon', 'jquery.nicescroll']
+        deps: ['icon']
+    },
+    guides: {
+        styles: ['guides.styl'],
+        scripts: ['guides.js'],
+        view: 'guides.ect'
+    },
+    events: {
+        styles: ['events.styl'],
+        scripts: ['events.js'],
+        view: 'events.ect',
+        deps: ['button']
+    },
+    videos: {
+        styles: ['videos.styl'],
+        scripts: ['videos.js'],
+        view: 'videos.ect',
+        deps: ['icon']
+    },
+    affiche: {
+        styles: ['affiche.styl'],
+        scripts: ['affiche.js'],
+        view: 'affiche.ect'
+    },
+    reviews: {
+        styles: ['reviews.styl'],
+        scripts: ['reviews.js'],
+        view: 'reviews.ect',
+        deps: ['rating']
     }
 }

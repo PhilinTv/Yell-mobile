@@ -1,0 +1,17 @@
+<% @videosDeps = @Helpers.getDeps('videos') %>
+
+<div class="videos">
+	<div class="videos__items">
+		<% for item in @videos : %>
+			<div class="videos__item">
+				<a class="videos__item-block" href="<%- item.url %>" style="background-image: url('<%- item.image %>')">
+					<span class="videos__item-icon">
+						<% @icon = {name: 'video'} %>
+						<% include @indexDeps.views.icon %>
+					</span>
+					<span class="videos__item-title"><%- item.title %></span>
+				</a>
+			</div>
+		<% end %>
+	</div>
+</div>

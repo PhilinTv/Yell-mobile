@@ -1,13 +1,14 @@
 <% @eventsDeps = @Helpers.getDeps('events') %>
 
-<div class="events">
+
+<div <%- @generateAttrs('events', @events) %>>
 	<div class="events__filter">
 		<span class="events__filter-item events__filter-item_active" data-filter="all">Все</span>
 		<span class="events__filter-item" data-filter="current">Текущие</span>
 		<span class="events__filter-item" data-filter="future">Будущие</span>
 	</div>
 	<div class="events__items">
-		<% for item in @events : %>
+		<% for item in @events.items : %>
 			<div class="events__item">
 				<a class="events__item-image" href="<%- item.url %>" style="background-image: url('<%- item.image %>')"></a>
 				<div class="events__item-title"><a href="<%- item.url %>"><%- item.title %></a></div>

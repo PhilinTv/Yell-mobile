@@ -1,10 +1,15 @@
 <% @footerDeps = @Helpers.getDeps('footer') %>
 
-<div <%- @Helpers.generateAttrs('footer', @footer) %>>
-	<div class="footer__bar">
+<% @footer = @footer || {} %>
+<% @footer.attrs = @footer.attrs || {} %>
+<% @footer.attrs['data-iscroll'] = 'horizontal' %>
+
+
+<div <%- @generateAttrs('footer', @footer) %>>
+	<div class="footer__container">
 		<div class="footer__collumns">
-			<div class="footer__collumn">
-				<div class="footer__collumn-title">Владельцам бизнеса</div>
+			<div class="footer__collumn footer__collumn_buttons">
+                <h3 class="heading heading_3 footer__collumn-title">Владельцам бизнеса</h3>
 				<p>
 					<% @button = {
 						text: 'ДОБАВИТЬ КОМПАНИЮ',
@@ -37,11 +42,19 @@
 
 			<% for collumn in @footerNav : %>
 				<div class="footer__collumn">
-					<div class="footer__collumn-title"><%- collumn.title %></div>
-					<ul class="footer__collumn-nav">
+					<h3 class="heading heading_3 footer__collumn-title"><%- collumn.title %></h3>
+					<ul class="footer__nav">
 						<% for item in collumn.items : %>
-							<li class="footer__collumn-nav-item">
-								<a href="<%- item.url %>"><%- item.caption %></a>
+							<li class="footer__nav-item">
+								<a href="<%- item.url %>">
+									<% if item.icon : %>
+										<span class="footer__nav-item-icon">
+											<% @icon = {name: item.icon} %>
+											<% include @footerDeps.views.icon %>
+										</span>
+									<% end %>
+									<span class="footer__nav-item-caption"><%- item.caption %></span>
+								</a>
 							</li>
 						<% end %>
 					</ul>

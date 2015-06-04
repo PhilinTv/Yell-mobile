@@ -1,30 +1,27 @@
-module.exports = function (name, obj, asArray) {
-	var attrs = '',
-        cssClass;
-	
-    obj = obj || {};
+module.exports = function (name, obj) {
+	obj = obj || {};
     obj.attrs = obj.attrs || {};
-    cssClass = [name];
+    obj.attrs.class = [name];
 
     if (obj.mods instanceof Object) {
     	for (var i in obj.mods) {
             if (obj.mods[i] !== false) {
-        		cssClass.push(name + '_' + i + (obj.mods[i] === true ? '' : '_' + obj.mods[i]));
+        		obj.attrs.class.push(name + '_' + i + (obj.mods[i] === true ? '' : '_' + obj.mods[i]));
             }
     	}
     }
 
     if (obj.mix instanceof Array) {
-    	cssClass = cssClass.concat(obj.mix);
+    	obj.attrs.class = obj.attrs.class.concat(obj.mix);
     }
 
-    obj.attrs.class = cssClass.join(' ');
-
+    obj.attrs.class = obj.attrs.class.join(' ');
+    
     for (var i in obj.attrs) {
-        if (obj.attrs[i] !== false) {
-            attrs += i + (obj.attrs[i] === true ? '' : '="' + obj.attrs[i] + '"') + ' ';
+        if (typeof obj.attrs[i] == 'object') {
+            obj.attrs[i] = JSON.stringify(obj.attrs[i]);
         }
     }
 
-    return asArray ? obj.attrs: attrs;
+    return obj.attrs;
 };

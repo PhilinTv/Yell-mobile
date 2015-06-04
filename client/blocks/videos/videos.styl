@@ -1,40 +1,42 @@
 .videos
-	overflow-x auto
-	
-	&__items
-		display table
-	
-	&__item
-		display table-cell
-		padding 3px
-		
-		&-block
-			display block
-			padding 35px 15px 15px
-			width 260px
-			height 150px
-			color $white
-			text-decoration none
-			background-color $gray-light
-			background-size cover
-			position relative
-			
-			&:before
-				content ''
-				absolute left top right bottom
-				background-color rgba($black, .7)
-			
-		&-icon
-			margin-bottom 15px
-			display block
-			width 50px
-			height 50px
-			position relative
-			opacity .5
-			
-		&-title
-			display block
-			height 80px
-			font-size 18px
-			position relative
-			overflow hidden
+    
+    &__items
+        display table
+        
+    
+    &__item
+        display table-cell
+        padding 3px
+        
+        &-block
+            display block
+            padding 35px 15px 15px
+            width 260px
+            height 150px
+            color $white
+            text-decoration none
+            background-color $gray-light
+            background-size cover
+            position relative
+            
+            &:before
+                content ''
+                absolute left top right bottom
+                background-color rgba($black, .7)
+            
+        &-icon
+            margin-bottom 15px
+            display block
+            width 50px
+            height 50px
+            position relative
+            opacity .5
+            
+            .icon
+                fill currentColor
+            
+        &-title
+            display block
+            height 80px
+            position relative
+            overflow hidden

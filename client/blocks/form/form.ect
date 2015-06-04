@@ -5,7 +5,7 @@
 <% @form.attrs.enctype = @form.attrs.enctype || 'multipart/form-data' %>
 
 
-<form <%- @Helpers.generateAttrs('form', @form) %>>
+<form <%- @generateAttrs('form', @form) %>>
 	<% for item in @form.items : %>
 		<div class="form__row">
 			<div class="form__item form__item_type_<%- item.type %>">

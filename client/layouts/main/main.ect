@@ -8,4 +8,16 @@
 	<% end %>
 <% end %>
 
+
+<% @generateAttrs = (name, obj) -> %>
+	<% @attrs = @Helpers.generateAttrs(name, obj) %>
+	
+	<% for k, v of @attrs : %>
+		<% if v != false : %>
+            <%- k %><% if v != true : %>="<%= v %>"<% end %>
+        <% end %>
+	<% end %>
+<% end %>
+
+
 <% include @Helpers.getDeps('common').views.common %>

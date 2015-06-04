@@ -70,4 +70,15 @@ module.exports = [{
         url: 'http://www.yell.ru/doc/aboutus/',
         caption: 'Работа в Yell'
     }]
+}, {
+    title: 'Скачать наши приложения',
+    items: [{
+        url: 'http://itunes.apple.com/sg/app/yell/id488522456?mt=8',
+        icon: 'apple',
+        caption: 'для iPhone'
+    }, {
+        url: 'https://play.google.com/store/apps/details?id=com.yellru.yell&feature=search_result#?t=W251bGwsMSwyLDEsImNvbS55ZWxscnUueWVsbCJd',
+        icon: 'android',
+        caption: 'для Android'
+    }]
 }];

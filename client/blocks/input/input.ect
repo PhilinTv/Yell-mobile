@@ -17,11 +17,11 @@
 <% end %>
 
 
-<% @inputAttrs = @Helpers.generateAttrs('input', @input, true) %>
-<div class="<%= @inputAttrs.class %>" data-ng-controller="Input">
+<% @inputAttrs = @Helpers.generateAttrs('input', @input) %>
+<div class="<%- @inputAttrs.class %>" data-ng-controller="Input">
 	<label>
 		<input
-			class="input__element"
+			class="input__control"
 			<% for k, v of @inputAttrs : %>
 				<% if v != false : %>
 					<%- k %><% if v != true : %>="<%= v %>"<% end %>

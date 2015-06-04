@@ -15,7 +15,7 @@
 			<link rel="stylesheet" href="<%- v %>">
 		<% end %>
 	</head>
-	<body>
+	<body <%- @generateAttrs('common', @common) %>>
 		<% include @commonDeps.views.svg %>
 		<% include @commonDeps.views.header %>
 		

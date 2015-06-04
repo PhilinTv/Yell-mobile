@@ -7,7 +7,7 @@
 <% @button.attrs.type = @button.attrs.type || 'button' %>
 
 
-<button <%- @Helpers.generateAttrs('button', @button) %>>
+<button <%- @generateAttrs('button', @button) %>>
 	<% if @button.icon && @button.icon.position == 'left' : %>
 		<span class="button__icon button__icon_position_<%- @button.icon.position %>">
 			<% @icon = @button.icon %>

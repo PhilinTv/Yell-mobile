@@ -1,8 +1,9 @@
 <% @afficheDeps = @Helpers.getDeps('affiche') %>
 
-<div class="affiche">
+
+<div <%- @generateAttrs('affiche', @affiche) %>>
 	<div class="affiche__items">
-		<% for item in @affiche : %>
+		<% for item in @affiche.items : %>
 			<div class="affiche__item">
 				<div class="affiche__item-block">
 					<a class="affiche__item-image" href="<%- item.url %>" style="background-image: url('<%- item.image %>')"></a>

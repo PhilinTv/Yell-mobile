@@ -1,78 +1,81 @@
 .input
-	display inline-block
-	position relative
-	color $gray-dark
-	
-	
-	&__element
-		width 100%
-		font-family inherit
-		color inherit
-		background $white
-		resize none
-		border none
-		border-radius 2px
-		box-sizing border-box
+    display inline-block
+    position relative
+    color $gray-dark
+    
+    
+    &__control
+        width 100%
+        font-family inherit
+        color inherit
+        background $white
+        resize none
+        border none
+        border-radius 2px
+        box-sizing border-box
 
-		&:focus
-			outline none
-			
-			
-	&__icon
-		position absolute
-		top 0
-		height 100%
-		
-		&_position
-			&_left
-				left 0
-				
-			&_right
-				right 0
-				
-		.icon
-			absolute left 25% top 25%
-			width 50%
-			height 50%
-			fill currentColor
-			
-			
-	&__dropdown
-		absolute left 0 top 100% right 0
-		background $white
-		box-shadow 0 2px 2px rgba($black, .2)
-		z-index 10
-		
-						
-	&_width_full
-		display block
+        &:focus
+            outline none
+            
+            
+    &__icon
+        position absolute
+        top 0
+        height 100%
+        
+        &_position
+            &_left
+                left 0
+                
+            &_right
+                right 0
+                
+        .icon
+            absolute left 25% top 25%
+            width 50%
+            height 50%
+            fill currentColor
+            
+            
+    &__dropdown
+        absolute left 0 top 100% right 0
+        background $white
+        box-shadow 0 2px 2px rgba($black, .2)
+        z-index 10
+        
+                        
+    &_width_full
+        display block
 
 
-	&_size
-		&_l
-			input
-				height 44px
-				padding 13px
-				font-size 16px
+    &_size
+        &_l
+            input
+                height 44px
+                padding 13px
+                font-size 16px
 
-			textarea
-				height 148px
-				padding 13px
-				font-sze 16px
+            textarea
+                height 148px
+                padding 13px
+                font-sze 16px
 
-			select
-				padding 13px 0 13px 13px
+            select
+                padding 13px 0 13px 13px
 
-			option
-				padding 13px
-				
-			&.input_indent_left .input__element
-				padding-left 44px
-				
-			.input__icon
-				width 44px
-				
+            option
+                padding 13px
+                
+            &.input_indent_left .input__control
+                padding-left 44px
+                
+            .input__icon
+                width 44px
+                
 
-	&_theme
-		&_blue-light
-			color $blue-light
+    &_theme_blue-light &__control
+        color $blue-light
+        placeholder-mixin($blue-light)
+        
+    &_theme_blue-light &__icon
+        color $blue-light

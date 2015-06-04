@@ -1,13 +1,14 @@
 <% @guidesDeps = @Helpers.getDeps('guides') %>
 
-<div class="guides">
+
+<div <%- @generateAttrs('guides', @guides) %>>
 	<div class="guides__items">
-		<% for item in @guides : %>
+		<% for item in @guides.items : %>
 			<div class="guides__item">
 				<div class="guides__item-block">
 					<a class="guides__item-image" href="<%- item.url %>" style="background-image: url('<%- item.image %>')"></a>
 					<div class="guides__item-body">
-						<div class="guides__item-title"><a href="<%- item.url %>"><%- item.title %></a></div>
+						<h3 class="heading heading_3 guides__item-title"><a href="<%- item.url %>"><%- item.title %></a></h3>
 						<div class="guides__item-text"><%- item.text %></div>
 						<div class="guides__item-date"><%- item.date %></div>
 					</div>

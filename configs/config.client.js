@@ -22,17 +22,20 @@ module.exports = {
     'jquery.nicescroll': {
         scripts: ['jquery.nicescroll.min.js']
     },
+    iscroll: {
+        scripts: ['iscroll.js']
+    },
 	
     // Layouts
     base: {
-        deps: ['modernizr', 'angularjs', 'jquery', 'jquery.bem', 'requirejs']
+        deps: ['modernizr', 'angularjs', 'jquery', 'jquery.bem', 'requirejs', 'iscroll']
     },
     
     common: {
         styles: ['common.styl'],
         scripts: ['common.js'],
         view: 'common.ect',
-        deps: ['svg', 'icon', 'link', 'button', 'input', 'form', 'heading', 'logo', 'header', 'footer']
+        deps: ['svg', 'icon', 'link', 'button', 'input', 'form', 'heading', 'logo', 'header', 'footer', 'iscroll']
     },
     
     // Pages
@@ -95,7 +98,7 @@ module.exports = {
     footer: {
         styles: ['footer.styl'],
         view: 'footer.ect',
-        deps: ['button']
+        deps: ['button', 'icon']
     },
     categories: {
         styles: ['categories.styl'],

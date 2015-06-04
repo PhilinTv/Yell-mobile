@@ -1,6 +1,7 @@
 <% @logoDeps = @Helpers.getDeps('logo') %>
 
-<a <%- @Helpers.generateAttrs('logo', @logo) %>>
+
+<a <%- @generateAttrs('logo', @logo) %>>
 	<% @icon = {name: 'yell'} %>
 	<% include @logoDeps.views.icon %>
 </a>

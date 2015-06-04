@@ -1,44 +1,57 @@
 .index
-	&__section
-		padding 15px
-		
-		&_main
-			position relative
-			min-height 420px
-			color $white
-			background url($dir-path + '/img/index__section_main.bg.png') 0 0 no-repeat
-			background-size cover
-			box-sizing border-box
-			
-	
-	&__search
-		absolute left 15px right 15px bottom 15px
-		
-		.input__element
-			box-shadow 0 1px 2px rgba($black, .2)
-			
-		.button
-			margin-top 80px
-			text-transform uppercase
-			box-shadow 0 2px 2px rgba($black, .2)
-				
+    &__section
+        overflow hidden
+        
+        &-title
+            padding 0 15px
+            margin-bottom 0
+        
+        &-container
+            float left
+            padding 15px
+        
 
-	&__download-app
-		position relative
-		display block
-		text-decoration none
-		color $white
-		text-align center
-		
-		&-title
-			absolute left top 10% right
-			padding 0 60px
-			font-size 18px
-		
-		img
-			width 100%
-			margin 0
-				
+        &_main
+            display table
+            width 100%
+            min-height 420px
+            color $white
+            background url($dir-path + '/img/index__section_main.bg.png') 0 0 no-repeat
+            background-size cover            
+    
+            .index__section-container
+                display table-cell
+                vertical-align bottom
+                float none
+                width 100%
+                height 100%
+                padding 15px
+                
+            .input__element
+                box-shadow 0 1px 2px rgba($black, .2)
+                
+            .button
+                margin-top 80px
+                text-transform uppercase
+                box-shadow 0 2px 2px rgba($black, .2)
+        
 
-	.heading_2
-		margin-top 0
+        &_events
+            .index__section-container
+                float none
+                
+
+    &__download-app
+        position relative
+        display block
+        text-decoration none
+        color $white
+        text-align center
+        
+        &-title
+            absolute left top 10% right
+            padding 0 60px
+        
+        img
+            width 100%
+            margin 0

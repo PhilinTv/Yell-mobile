@@ -7,6 +7,10 @@
 			<div class="reviews__item-company">
 				<a class="reviews__item-company-image" href="<%- item.company.url %>" style="background-image: url('<%- item.company.image %>')"></a>
 				<div class="reviews__item-company-data">
+					<div class="reviews__item-company-rating">
+						<% @stars = {rating: item.company.rating} %>
+						<% include @reviewsDeps.views.stars %>
+					</div>
 					<div class="reviews__item-company-name">
 						<a href="<%- item.company.url %>"><%- item.company.name %></a>
 					</div>

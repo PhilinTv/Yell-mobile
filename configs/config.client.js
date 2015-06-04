@@ -35,7 +35,7 @@ module.exports = {
         styles: ['common.styl'],
         scripts: ['common.js'],
         view: 'common.ect',
-        deps: ['svg', 'icon', 'link', 'button', 'input', 'form', 'heading', 'logo', 'header', 'footer', 'iscroll']
+        deps: ['svg', 'icon', 'link', 'button', 'input', 'form', 'heading', 'logo', 'header', 'footer', 'share']
     },
     
     // Pages
@@ -100,6 +100,14 @@ module.exports = {
         view: 'footer.ect',
         deps: ['button', 'icon']
     },
+    stars: {
+        styles: ['stars.styl'],
+        view: 'stars.ect'
+    },
+    share: {
+        styles: ['share.styl'],
+        view: 'share.ect'
+    },
     categories: {
         styles: ['categories.styl'],
         scripts: ['categories.js'],
@@ -132,6 +140,6 @@ module.exports = {
         styles: ['reviews.styl'],
         scripts: ['reviews.js'],
         view: 'reviews.ect',
-        deps: ['rating']
+        deps: ['stars']
     }
 }

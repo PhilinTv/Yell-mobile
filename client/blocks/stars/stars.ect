@@ -1,0 +1,6 @@
+<% @starsDeps = @Helpers.getDeps('stars') %>
+
+<div <%- @generateAttrs('stars', @stars) %>>
+	<div class="stars__progress" style="width: <%- @stars.rating / 5 * 100 %>%;"></div>
+	<img src="/blocks/stars/img/stars.png">
+</div>

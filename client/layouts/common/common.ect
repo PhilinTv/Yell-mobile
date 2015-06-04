@@ -21,6 +21,8 @@
 		
 		<% include @commonDeps.views[@view] %>
 
+		<% include @commonDeps.views.share %>
+
 		<% include @commonDeps.views.footer %>
 		
 		<% for k, v of @Helpers.getDeps('base').scripts : %>

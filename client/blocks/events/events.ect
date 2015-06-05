@@ -1,5 +1,8 @@
 <% @eventsDeps = @Helpers.getDeps('events') %>
 
+<% @events.mix = @events.mix || [] %>
+<% @events.mix.push('card') %>
+
 
 <div <%- @generateAttrs('events', @events) %>>
 	<div class="events__filter">

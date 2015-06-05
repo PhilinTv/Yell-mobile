@@ -1,0 +1,89 @@
+.fab
+    position absolute
+    width 60px
+    height 60px
+    
+    &:before
+        content ''
+        fixed left top right bottom
+        opacity 0
+        visibility hidden
+        background-color rgba($black, .8)
+        transition opacity .3s
+    
+    
+    &__item
+        absolute left top
+        width 100%
+        height 100%
+        color $white
+        text-decoration none
+        text-align center
+        cursor pointer
+        visibility hidden
+        border-radius 50%
+        box-sizing border-box
+        transition .2s
+        
+        &.is-visible
+            visibility visible
+            box-shadow 0 0 4px rgba($black, .14), 0 4px 8px rgba($black, .28)
+        
+
+        &_theme
+            &_red
+                padding 22px
+                background-color $red
+                
+                .icon
+                    transition transform .2s
+                
+                &.is-close .icon
+                    transform-origin 50% 50%
+                    transform rotate3d(0, 0, 1, 135deg)
+            
+            &_pink,
+            &_green,
+            &_blue
+                padding 18px
+                
+            &_pink
+                background-color $pink
+                
+            &_green
+                background-color $green
+                
+            &_blue
+                background-color $blue
+                
+            
+        &-caption
+            absolute top 50% right 100%
+            margin -8px 15px 0 0
+            white-space nowrap
+            opacity 0
+            
+        
+        .icon
+            fill currentColor
+            
+            
+    &.is-opened:before
+        opacity 1
+        visibility visible
+
+
+    &.is-opened &__item_theme
+        &_pink
+            top 75px
+        
+        &_green
+            top 150px
+        
+        &_blue
+            top 225px
+
+        
+    &.is-opened &__item-caption
+        opacity 1
+        transition opacity .3s .3s

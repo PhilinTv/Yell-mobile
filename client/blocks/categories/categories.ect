@@ -1,18 +1,23 @@
 <% @categoriesDeps = @Helpers.getDeps('categories') %>
 
+<% @categories.attrs = @categories.attrs || {} %>
+<% @categories.attrs['data-iscroll'] = 'horizontal' %>
+
 
 <div <%- @generateAttrs('categories', @categories) %>>
-	<div class="categories__items">
-		<% for item in @categories.items : %>
-			<div class="categories__item">
-				<a class="categories__item-block" href="<%- item.url %>">
-					<span class="categories__item-icon">
-						<% @icon = {name: item.icon } %>
-						<% include @inputDeps.views.icon %>
-					</span>
-					<span class="categories__item-name"><%- item.title %></span>
-				</a>
-			</div>
-		<% end %>
+	<div class="categories__container">
+		<div class="categories__items">
+			<% for item in @categories.items : %>
+				<div class="categories__item">
+					<a class="categories__item-card card" href="<%- item.url %>">
+						<span class="categories__item-icon">
+							<% @icon = {name: item.icon } %>
+							<% include @inputDeps.views.icon %>
+						</span>
+						<span class="categories__item-name"><%- item.title %></span>
+					</a>
+				</div>
+			<% end %>
+		</div>
 	</div>
 </div>

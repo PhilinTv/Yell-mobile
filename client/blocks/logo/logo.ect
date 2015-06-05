@@ -1,7 +1,10 @@
 <% @logoDeps = @Helpers.getDeps('logo') %>
 
+<% @logo.mix = @logo.mix || [] %>
+<% @logo.mix.push('no-tap-highlight-color') %>
+
 
 <a <%- @generateAttrs('logo', @logo) %>>
-	<% @icon = {name: 'yell'} %>
-	<% include @logoDeps.views.icon %>
+    <% @icon = {name: 'yell'} %>
+    <% include @logoDeps.views.icon %>
 </a>

@@ -4,10 +4,6 @@ app.controller('Header', function ($scope, $rootScope) {
 	$scope.toggleMenu = function () {
 		$scope.menuIsOpened = !$scope.menuIsOpened;
 	};
-
-    $scope.toggleAction = function () {
-        $scope.actionIsOpened = !$scope.actionIsOpened;
-    };
     
     $(window).on('scroll', function () {
         if ($(this).scrollTop() > $header.offset().top) {
@@ -16,5 +12,5 @@ app.controller('Header', function ($scope, $rootScope) {
         else {
             $header.delMod('fixed')
         }
-    })
+    });
 });

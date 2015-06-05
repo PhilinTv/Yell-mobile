@@ -6,35 +6,22 @@
 
 
 <div <%- @generateAttrs('header', @header) %>>
-	<div class="header__bar header__bar_horizontal">
-		<% @logo = {
-			attrs: {
-				href: '/'
-			},
-			mix: ['header__logo']
-		} %>
-		<% include @headerDeps.views.logo %>
+    <div class="header__bar header__bar_horizontal">
+        <% @logo = {
+            attrs: {
+                href: '/'
+            },
+            mix: ['header__logo']
+        } %>
+        <% include @headerDeps.views.logo %>
 
-		<div class="header__icon-menu" data-ng-click="toggleMenu()">
-			<span class="header__icon-menu-lines header__icon-menu-lines_{{ menuIsOpened ? 'close' : 'burger' }}"></span>
-		</div>
+        <div class="header__menu-switcher no-tap-highlight-color" data-ng-click="toggleMenu()">
+            <span class="header__icon-burger" data-ng-class="menuIsOpened ? 'is-close' : ''"></span>
+        </div>
 
-		<div class="header__action header__action_{{ actionIsOpened ? 'opened' : 'closed' }}">
-			<a class="header__action-button header__action-button_pink">
-				<% @icon = {name: 'review'} %>
-				<% include @headerDeps.views.icon %>
-			</a>
-			<a class="header__action-button header__action-button_green">
-				<% @icon = {name: 'photo'} %>
-				<% include @headerDeps.views.icon %>
-			</a>
-			<a class="header__action-button header__action-button_blue">
-				<% @icon = {name: 'star'} %>
-				<% include @headerDeps.views.icon %>
-			</a>
-			<a class="header__action-button header__action-button_red" data-ng-click="toggleAction()">
-				<span class="header__icon-add header__icon-add_{{ actionIsOpened ? 'close' : 'plus' }}"></span>
-			</a>
-		</div>
-	</div>
+        <% @fab = {
+            mix: ['header__fab']
+        } %>
+        <% include @headerDeps.views.fab %>
+    </div>
 </div>

@@ -13,6 +13,8 @@
         border none
         border-radius 2px
         box-sizing border-box
+        
+        placeholder-mixin(inherit)
 
         &:focus
             outline none
@@ -39,13 +41,8 @@
             
     &__dropdown
         absolute left 0 top 100% right 0
-        background $white
-        box-shadow 0 2px 2px rgba($black, .2)
-        z-index 10
-        
-                        
-    &_width_full
-        display block
+        z-index 2
+        white-block-shadow-mixin()
 
 
     &_size
@@ -73,9 +70,16 @@
                 width 44px
                 
 
+    &_width_full
+        display block
+        
+
+    &_shadow_yes
+    	box-shadow 0 2px 2px rgba($black, .2)
+                
+
     &_theme_cobalt-light &__control
         color $cobalt-light
-        placeholder-mixin($cobalt-light)
         
     &_theme_cobalt-light &__icon
         color $cobalt-light

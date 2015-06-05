@@ -2,9 +2,10 @@
 
 <% @button.attrs = @button.attrs || {} %>
 <% @button.mods = @button.mods || {} %>
+<% @button.mix = @button.mix || [] %>
 <% @button.mods.size = @button.mods.size || 'l' %>
-<% @button.mods.width = @button.mods.width || 'full' %>
 <% @button.attrs.type = @button.attrs.type || 'button' %>
+<% @button.mix.push('no-tap-highlight-color') %>
 
 
 <button <%- @generateAttrs('button', @button) %>>

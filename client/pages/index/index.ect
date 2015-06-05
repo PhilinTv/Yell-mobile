@@ -7,26 +7,21 @@
 
 <div <%- @generateAttrs('index', @index) %>>
 	<div class="index__section index__section_main" style="min-height: {{ sectionMainHeight }}px;">
-		<div class="index__section-container">
+		<div class="index__search">
 			<h2 class="heading heading_2">Поиск среди<br>1 450 057 отзывов</h2>
 			<% include @indexDeps.views.search %>
 		</div>
 	</div>
 	
-	<div class="index__section" data-iscroll="horizontal">
-		<div class="index__section-container">
-			<% @categories = @data.categories %>
-			<% include @indexDeps.views.categories %>
-		</div>
+	<div class="index__section index__section_categories">
+		<% @categories = @data.categories %>
+		<% include @indexDeps.views.categories %>
 	</div>
 
-	<h2 class="heading heading_2 index__section-title">Интересные путеводители</h2>
-
-	<div class="index__section" data-iscroll="horizontal">
-		<div class="index__section-container">
-			<% @guides = @data.guides %>
-			<% include @indexDeps.views.guides %>
-		</div>
+	<div class="index__section index__section_guides">
+		<h2 class="heading heading_2">Интересные путеводители</h2>
+		<% @guides = @data.guides %>
+		<% include @indexDeps.views.guides %>
 	</div>
 
 	<a class="index__download-app" href="/">
@@ -34,39 +29,27 @@
 		<h3 class="heading heading_3 index__download-app-title">Скачайте наше<br>мобильное приложение</h3>
 	</a>
 
-	<h2 class="heading heading_2 index__section-title">События компаний</h2>
-
 	<div class="index__section index__section_events">
-		<div class="index__section-container">
-			<% @events = @data.events %>
-			<% include @indexDeps.views.events %>
-		</div>
+		<h2 class="heading heading_2">События компаний</h2>
+		<% @events = @data.events %>
+		<% include @indexDeps.views.events %>
 	</div>
 
-	<h2 class="heading heading_2 index__section-title">Видео компаний</h2>
-
-	<div class="index__section" data-iscroll="horizontal">
-		<div class="index__section-container">
-			<% @videos = @data.videos %>
-			<% include @indexDeps.views.videos %>
-		</div>
+	<div class="index__section index__section_videos">
+		<h2 class="heading heading_2">Видео компаний</h2>
+		<% @videos = @data.videos %>
+		<% include @indexDeps.views.videos %>
 	</div>
 
-	<h2 class="heading heading_2 index__section-title">Афиша</h2>
-
-	<div class="index__section" data-iscroll="horizontal">
-		<div class="index__section-container">
-			<% @affiche = @data.affiche %>
-			<% include @indexDeps.views.affiche %>
-		</div>
+	<div class="index__section index__section_affiche">
+		<h2 class="heading heading_2">Афиша</h2>
+		<% @affiche = @data.affiche %>
+		<% include @indexDeps.views.affiche %>
 	</div>
 
-	<h2 class="heading heading_2 index__section-title">Отзывы</h2>
-
-	<div class="index__section">
-		<div class="index__section-container">
-			<% @reviews = @data.reviews %>
-			<% include @indexDeps.views.reviews %>
-		</div>
+	<div class="index__section index__section_reviews">
+		<h2 class="heading heading_2">Отзывы</h2>
+		<% @reviews = @data.reviews %>
+		<% include @indexDeps.views.reviews %>
 	</div>
 </div>

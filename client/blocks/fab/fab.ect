@@ -1,0 +1,39 @@
+<% @fabDeps = @Helpers.getDeps('fab') %>
+
+<% @fab = @fab || {} %>
+<% @fab.attrs = @fab.attrs || {} %>
+<% @fab.mix = @fab.mix || [] %>
+<% @fab.attrs['data-ng-controller'] = 'Fab' %>
+<% @fab.mix.push('no-tap-highlight-color') %>
+<% @fab.items = [{
+    theme: 'blue',
+    icon: 'star',
+    caption: 'Добавить в избранное',
+    action: 'favorite'
+}, {
+    theme: 'green',
+    icon: 'photo',
+    caption: 'Добавить фотографию',
+    action: 'photo'
+}, {
+    theme: 'pink',
+    icon: 'review',
+    caption: 'Оставить отзыв',
+    action: 'review'
+}] %>
+
+
+<div <%- @generateAttrs('fab', @fab) %> data-ng-class="fabIsOpened ? 'is-opened' : ''">
+    <% for item in @fab.items : %>
+        <a class="fab__item fab__item_theme_<%- item.theme %>" data-ng-class="fabIsOpened ? 'is-visible' : ''">
+            <% @icon = {name: item.icon} %>
+            <% include @fabDeps.views.icon %>
+            <span class="fab__item-caption"><%- item.caption %></span>
+        </a>
+    <% end %>
+
+    <span class="fab__item fab__item_theme_red is-visible" data-ng-class="fabIsOpened ? 'is-close' : ''" data-ng-click="toggleFab()">
+        <% @icon = {name: 'plus'} %>
+        <% include @fabDeps.views.icon %>
+    </span>
+</div>

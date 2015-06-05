@@ -1,6 +1,6 @@
 module.exports = {
     
-	// Vendors
+    // Vendors
     modernizr: {
         scripts: ['modernizr.js']
     },
@@ -25,7 +25,7 @@ module.exports = {
     iscroll: {
         scripts: ['iscroll.js']
     },
-	
+    
     // Layouts
     base: {
         deps: ['modernizr', 'angularjs', 'jquery', 'jquery.bem', 'requirejs', 'iscroll']
@@ -35,7 +35,7 @@ module.exports = {
         styles: ['common.styl'],
         scripts: ['common.js'],
         view: 'common.ect',
-        deps: ['svg', 'icon', 'link', 'button', 'input', 'form', 'heading', 'logo', 'header', 'footer', 'share']
+        deps: ['svg', 'icon', 'link', 'button', 'input', 'form', 'heading', 'logo', 'header', 'footer', 'share', 'card']
     },
     
     // Pages
@@ -93,20 +93,25 @@ module.exports = {
         styles: ['header.styl'],
         scripts: ['header.js'],
         view: 'header.ect',
-        deps: ['icon', 'link', 'logo', 'form']
+        deps: ['icon', 'link', 'logo', 'fab']
     },
     footer: {
         styles: ['footer.styl'],
         view: 'footer.ect',
         deps: ['button', 'icon']
     },
+    fab: {
+        styles: ['fab.styl'],
+        scripts: ['fab.js'],
+        view: 'fab.ect',
+        deps: ['icon']
+    },
     stars: {
         styles: ['stars.styl'],
         view: 'stars.ect'
     },
-    share: {
-        styles: ['share.styl'],
-        view: 'share.ect'
+    card: {
+        styles: ['card.styl']
     },
     categories: {
         styles: ['categories.styl'],
@@ -141,5 +146,9 @@ module.exports = {
         scripts: ['reviews.js'],
         view: 'reviews.ect',
         deps: ['stars']
+    },
+    share: {
+        styles: ['share.styl'],
+        view: 'share.ect'
     }
 }

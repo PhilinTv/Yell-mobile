@@ -5,19 +5,19 @@
 
 
 <div <%- @generateAttrs('videos', @videos) %>>
-	<div class="videos__container">
-		<div class="videos__items">
-			<% for item in @videos.items : %>
-				<div class="videos__item">
-					<a class="videos__item-block" href="<%- item.url %>" style="background-image: url('<%- item.image %>')">
-						<span class="videos__item-icon">
-							<% @icon = {name: 'video'} %>
-							<% include @indexDeps.views.icon %>
-						</span>
-						<h3 class="heading heading_3 videos__item-title"><%- item.title %></h3>
-					</a>
-				</div>
-			<% end %>
-		</div>
-	</div>
+    <div class="videos__container">
+        <div class="videos__items">
+            <% for item in @videos.items : %>
+                <div class="videos__item">
+                    <a class="videos__item-block" href="<%- item.url %>" style="background-image: url('<%- item.image %>')">
+                        <span class="videos__item-icon">
+                            <% @icon = {name: 'video'} %>
+                            <% include @indexDeps.views.icon %>
+                        </span>
+                        <h3 class="heading heading_3 videos__item-title"><%- item.title %></h3>
+                    </a>
+                </div>
+            <% end %>
+        </div>
+    </div>
 </div>

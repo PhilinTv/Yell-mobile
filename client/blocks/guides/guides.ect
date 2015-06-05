@@ -5,20 +5,20 @@
 
 
 <div <%- @generateAttrs('guides', @guides) %>>
-	<div class="guides__container">
-		<div class="guides__items">
-			<% for item in @guides.items : %>
-				<div class="guides__item">
-					<div class="guides__item-card card">
-						<a class="guides__item-image" href="<%- item.url %>" style="background-image: url('<%- item.image %>')"></a>
-						<div class="guides__item-body">
-							<h3 class="heading heading_3 guides__item-title"><a href="<%- item.url %>"><%- item.title %></a></h3>
-							<div class="guides__item-text"><%- item.text %></div>
-							<div class="guides__item-date"><%- item.date %></div>
-						</div>
-					</div>
-				</div>
-			<% end %>
-		</div>
-	</div>
+    <div class="guides__container">
+        <div class="guides__items">
+            <% for item in @guides.items : %>
+                <div class="guides__item">
+                    <div class="guides__item-card card">
+                        <a class="guides__item-image" href="<%- item.url %>" style="background-image: url('<%- item.image %>')"></a>
+                        <div class="guides__item-body">
+                            <h3 class="heading heading_3 guides__item-title"><a href="<%- item.url %>"><%- item.title %></a></h3>
+                            <div class="guides__item-text"><%- item.text %></div>
+                            <div class="guides__item-date"><%- item.date %></div>
+                        </div>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
 </div>

@@ -9,21 +9,21 @@
 
 
 <button <%- @generateAttrs('button', @button) %>>
-	<% if @button.icon && @button.icon.position == 'left' : %>
-		<span class="button__icon button__icon_position_<%- @button.icon.position %>">
-			<% @icon = @button.icon %>
-			<% include @inputDeps.views.icon %>
-		</span>
-	<% end %>
+    <% if @button.icon && @button.icon.position == 'left' : %>
+        <span class="button__icon button__icon_position_<%- @button.icon.position %>">
+            <% @icon = @button.icon %>
+            <% include @inputDeps.views.icon %>
+        </span>
+    <% end %>
 
-	<% if @button.text : %>
-		<span class="button__text"><%- @button.text %></span>
-	<% end %>
+    <% if @button.text : %>
+        <span class="button__text"><%- @button.text %></span>
+    <% end %>
 
-	<% if @button.icon && @button.icon.position == 'right' : %>
-		<span class="button__icon button__icon_position_<%- @button.icon.position %>">
-			<% @icon = @button.icon %>
-			<% include @inputDeps.views.icon %>
-		</span>
-	<% end %>
+    <% if @button.icon && @button.icon.position == 'right' : %>
+        <span class="button__icon button__icon_position_<%- @button.icon.position %>">
+            <% @icon = @button.icon %>
+            <% include @inputDeps.views.icon %>
+        </span>
+    <% end %>
 </button>

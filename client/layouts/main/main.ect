@@ -1,22 +1,22 @@
 <% @getDepsViews = (name) -> %>
-	<% @deps = @Helpers.getDeps(name) %>
-	
-	<% for k, v of @deps.views : %>
-		<% if k != name : %>
-			<% include v %>
-		<% end %>
-	<% end %>
+    <% @deps = @Helpers.getDeps(name) %>
+    
+    <% for k, v of @deps.views : %>
+        <% if k != name : %>
+            <% include v %>
+        <% end %>
+    <% end %>
 <% end %>
 
 
 <% @generateAttrs = (name, obj) -> %>
-	<% @attrs = @Helpers.generateAttrs(name, obj) %>
-	
-	<% for k, v of @attrs : %>
-		<% if v != false : %>
+    <% @attrs = @Helpers.generateAttrs(name, obj) %>
+    
+    <% for k, v of @attrs : %>
+        <% if v != false : %>
             <%- k %><% if v != true : %>="<%= v %>"<% end %>
         <% end %>
-	<% end %>
+    <% end %>
 <% end %>
 
 

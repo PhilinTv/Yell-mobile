@@ -6,37 +6,37 @@
 <% @input.mods.size = @input.mods.size || 'l' %>
 <% @input.mods.width = @input.mods.width || 'full' %>
 <% if @input.icon : %>
-	<% @input.mods.indent = @input.icon.position %>
+    <% @input.mods.indent = @input.icon.position %>
 <% end %>
 <% @input.attrs.type = @input.attrs.type || 'text' %>
 <% if @input.options.autocomplete : %>
-	<% @input.attrs['data-autocomplete'] = JSON.stringify({
-		url: @input.options.autocomplete.url,
-		queryParam: @input.options.autocomplete.queryParam
-	}) %>
+    <% @input.attrs['data-autocomplete'] = JSON.stringify({
+        url: @input.options.autocomplete.url,
+        queryParam: @input.options.autocomplete.queryParam
+    }) %>
 <% end %>
 
 
 <% @inputAttrs = @Helpers.generateAttrs('input', @input) %>
 <div class="<%- @inputAttrs.class %>" data-ng-controller="Input">
-	<label>
-		<input
-			class="input__control"
-			<% for k, v of @inputAttrs : %>
-				<% if v != false : %>
-					<%- k %><% if v != true : %>="<%= v %>"<% end %>
-				<% end %>
-			<% end %>
-			data-ng-keyup="keyup($event)"
-		>
-		<% if @input.icon : %>
-			<span class="input__icon input__icon_position_<%- @input.icon.position %>">
-				<% @icon = @input.icon %>
-				<% include @inputDeps.views.icon %>
-			</span>
-		<% end %>
-	</label>
-	<% if @input.options.autocomplete : %>
-		<div class="input__dropdown" data-ng-include="'<%- @input.options.autocomplete.dropdownTpl %>'"></div>
-	<% end %>
+    <label>
+        <input
+            class="input__control"
+            <% for k, v of @inputAttrs : %>
+                <% if v != false : %>
+                    <%- k %><% if v != true : %>="<%= v %>"<% end %>
+                <% end %>
+            <% end %>
+            data-ng-keyup="keyup($event)"
+        >
+        <% if @input.icon : %>
+            <span class="input__icon input__icon_position_<%- @input.icon.position %>">
+                <% @icon = @input.icon %>
+                <% include @inputDeps.views.icon %>
+            </span>
+        <% end %>
+    </label>
+    <% if @input.options.autocomplete : %>
+        <div class="input__dropdown" data-ng-include="'<%- @input.options.autocomplete.dropdownTpl %>'"></div>
+    <% end %>
 </div>

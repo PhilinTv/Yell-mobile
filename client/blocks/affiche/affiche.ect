@@ -5,19 +5,19 @@
 
 
 <div <%- @generateAttrs('affiche', @affiche) %>>
-	<div class="affiche__container">
-		<div class="affiche__items">
-			<% for item in @affiche.items : %>
-				<div class="affiche__item">
-					<div class="affiche__item-card card">
-						<a class="affiche__item-image" href="<%- item.url %>" style="background-image: url('<%- item.image %>')"></a>
-						<div class="affiche__item-body">
-							<div class="affiche__item-title"><a href="<%- item.url %>"><%- item.title %></a></div>
-							<a class="affiche__item-category" href="<%- item.category.url %>"><%- item.category.name %></a>
-						</div>
-					</div>
-				</div>
-			<% end %>
-		</div>
-	</div>
+    <div class="affiche__container">
+        <div class="affiche__items">
+            <% for item in @affiche.items : %>
+                <div class="affiche__item">
+                    <div class="affiche__item-card card">
+                        <a class="affiche__item-image" href="<%- item.url %>" style="background-image: url('<%- item.image %>')"></a>
+                        <div class="affiche__item-body">
+                            <div class="affiche__item-title"><a href="<%- item.url %>"><%- item.title %></a></div>
+                            <a class="affiche__item-category" href="<%- item.category.url %>"><%- item.category.name %></a>
+                        </div>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
 </div>

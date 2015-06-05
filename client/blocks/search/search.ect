@@ -2,84 +2,84 @@
 
 
 <div <%- @generateAttrs('search', @search) %>>
-	<% @form = {
-		items: [
-			{
-				type: 'text',
-				icon: {
-					name: 'search',
-					position: 'left'
-				},
-				attrs: {
-					name: 'place',
-					placeholder: 'Найти',
-					required: true,
-					autocomplete: 'off'
-				},
-				mods: {
+    <% @form = {
+        items: [
+            {
+                type: 'text',
+                icon: {
+                    name: 'search',
+                    position: 'left'
+                },
+                attrs: {
+                    name: 'place',
+                    placeholder: 'Найти',
+                    required: true,
+                    autocomplete: 'off'
+                },
+                mods: {
                     width: 'full',
                     shadow: 'yes'
-				},
-				options: {
-					autocomplete: {
-						url: 'http://www.yell.ru/moscow/search/suggest-title/',
-						queryParam: 'text',
-						dropdownTpl: 'place-dropdown-tpl'
-					}
-				}
-			},
-			{
-				type: 'text',
-				icon: {
-					name: 'location',
-					position: 'left'
-				},
-				attrs: {
-					name: 'location',
-					placeholder: 'Где',
-					required: true,
-					autocomplete: 'off'
-				},
-				mods: {
+                },
+                options: {
+                    autocomplete: {
+                        url: 'http://www.yell.ru/moscow/search/suggest-title/',
+                        queryParam: 'text',
+                        dropdownTpl: 'place-dropdown-tpl'
+                    }
+                }
+            },
+            {
+                type: 'text',
+                icon: {
+                    name: 'location',
+                    position: 'left'
+                },
+                attrs: {
+                    name: 'location',
+                    placeholder: 'Где',
+                    required: true,
+                    autocomplete: 'off'
+                },
+                mods: {
                     width: 'full',
                     theme: 'cobalt-light',
                     shadow: 'yes'
-				},
-				options: {
-					autocomplete: {
-						url: 'http://www.yell.ru/moscow/search/suggest-location/',
-						queryParam: 'text',
-						dropdownTpl: 'location-dropdown-tpl'
-					}
-				}
-			},
-			{
-				type: 'button',
-				text: 'Найти',
-				attrs: {
-					type: 'submit'
-				},
-				mods: {
+                },
+                options: {
+                    autocomplete: {
+                        url: 'http://www.yell.ru/moscow/search/suggest-location/',
+                        queryParam: 'text',
+                        dropdownTpl: 'location-dropdown-tpl'
+                    }
+                }
+            },
+            {
+                type: 'button',
+                text: 'Найти',
+                attrs: {
+                    type: 'submit'
+                },
+                mods: {
                     width: 'full',
                     theme: 'red-light',
                     shadow: 'yes'
-				}
-			}
-		]
-	} %>
-	<% include @searchDeps.views.form %>
+                }
+            }
+        ]
+    } %>
+    <% include @searchDeps.views.form %>
 
-	<script type="text/ng-template" id="place-dropdown-tpl">
-		<ul data-ng-if="autocomplete.result.category || autocomplete.result.others" class="search__dropdown">
-			<li data-ng-repeat="item in autocomplete.result.category track by $index" class="search__dropdown-item" id="{{ item.id }}" data-type="category" data-url="{{ item.humanUrl }}">
-				<span class="search__dropdown-icon" data-icon="{{ item.icon }}"></span>
-				<span class="search__dropdown-name">{{ item.name }}</span>
-			</li>
-			<li data-ng-repeat="item in autocomplete.result.others track by $index" class="search__dropdown-item" data-type="other" id="{{ item.id }}">
-				<span class="search__dropdown-name">{{ item.name }}</span>
-				<span class="search__dropdown-review-count">{{ item.reviewCount }}</span>
-				<span class="search__dropdown-rating">{{ item.score }}</span>
-			</li>
-		</ul>
-	</script>
+    <script type="text/ng-template" id="place-dropdown-tpl">
+        <ul data-ng-if="autocomplete.result.category || autocomplete.result.others" class="search__dropdown">
+            <li data-ng-repeat="item in autocomplete.result.category track by $index" class="search__dropdown-item" id="{{ item.id }}" data-type="category" data-url="{{ item.humanUrl }}">
+                <span class="search__dropdown-icon" data-icon="{{ item.icon }}"></span>
+                <span class="search__dropdown-name">{{ item.name }}</span>
+            </li>
+            <li data-ng-repeat="item in autocomplete.result.others track by $index" class="search__dropdown-item" data-type="other" id="{{ item.id }}">
+                <span class="search__dropdown-name">{{ item.name }}</span>
+                <span class="search__dropdown-review-count">{{ item.reviewCount }}</span>
+                <span class="search__dropdown-rating">{{ item.score }}</span>
+            </li>
+        </ul>
+    </script>
 </div>

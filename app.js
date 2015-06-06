@@ -7,6 +7,7 @@ var express = require('express'),
 	moment = require('moment'),
 	io = require('socket.io')(http)
 	mime = require('mime'),
+    favicon = require('serve-favicon'),
 	builder = require('./builder'),
 	ECT = require('ect'),
 	ectRenderer = ECT({ watch: true, root: __dirname + '/client', ext: '.ect'}),
@@ -22,6 +23,7 @@ app
 	.set('views', path.join(__dirname, 'client'))
 	.set('view engine', 'ect')
 	.engine('ect', ectRenderer.render)
+    .use(favicon(__dirname + '/favicon.ico'))
 	/*.use(express.static(path.join(__dirname, 'client')))*/;
 
 
@@ -106,7 +108,6 @@ app.get(/\.(json)$/, function (req, res, next) {
 
 app.get('/', function (req, res, next) {
 	res.render('index', {
-        events: require('./data/events'),
         reviews: require('./data/reviews')
     });
 });

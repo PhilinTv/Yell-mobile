@@ -8,10 +8,10 @@ app.controller('Header', function ($scope, $rootScope, $element) {
     
     $scope.fixedHeader = function () {
         if ($(window).scrollTop() > $header.offset().top) {
-            $scope.isHeaderFixed = true;
+            $header.addClass('is-fixed');
         }
         else {
-            $scope.isHeaderFixed = false;
+            $header.removeClass('is-fixed');
         }
     };
     

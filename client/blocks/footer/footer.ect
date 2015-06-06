@@ -1,23 +1,19 @@
 <% @footerDeps = @Helpers.getDeps('footer') %>
 
 <% @footer = @footer || {} %>
-<% @footer.attrs = @footer.attrs || {} %>
-<% @footer.attrs['data-iscroll'] = 'horizontal' %>
 
 
 <div <%- @generateAttrs('footer', @footer) %>>
-    <div class="footer__container">
-        <% @collumnsHtml = include 'blocks/footer/partial/footer__collumns.ect' %>
-        
-        <% @scroller = {
-            content: @collumnsHtml,
-            options: {
-                axis: 'x'
-            }
-        } %>
-        
-        <% include @footerDeps.views.scroller %>
-    </div>
+    <% @collumnsHtml = include 'blocks/footer/partial/footer__collumns.ect' %>
+    
+    <% @scroller = {
+        content: @collumnsHtml,
+        options: {
+            axis: 'x'
+        }
+    } %>
+    
+    <% include @footerDeps.views.scroller %>
 </div>
 
 

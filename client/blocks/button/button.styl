@@ -46,6 +46,7 @@
             height 50px
             padding 14px 20px
             font-size 16px
+            text-transform uppercase
 
             .button__icon
                 width 20px
@@ -62,13 +63,16 @@
 
     &_theme
         &_red
-            button-theme-mixin($red)
+            mixin-button-theme($red_400)
             
-        &_red-light
-            button-theme-mixin($red-light)
+        &_green
+            mixin-button-theme($green_500)
             
-        &_dark
-            button-theme-mixin($dark)
+        &_blue
+            mixin-button-theme($blue_500)
+            
+        &_grey
+            mixin-button-theme($grey_700)
 
 
     &__text

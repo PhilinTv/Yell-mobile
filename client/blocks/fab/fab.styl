@@ -20,20 +20,20 @@
         text-decoration none
         text-align center
         cursor pointer
-        visibility hidden
+        opacity 0
         border-radius 50%
         box-sizing border-box
         transition .2s
         
         &.is-visible
-            visibility visible
+            opacity 1
             box-shadow 0 0 4px rgba($black, .14), 0 4px 8px rgba($black, .28)
         
 
         &_theme
             &_red
                 padding 22px
-                background-color $red
+                background-color $red_400
                 
                 .icon
                     transition transform .2s
@@ -48,20 +48,27 @@
                 padding 18px
                 
             &_pink
-                background-color $pink
+                background-color $pink_500
                 
             &_green
-                background-color $green
+                background-color $green_500
                 
             &_blue
-                background-color $blue
+                background-color $blue_500
                 
             
         &-caption
             absolute top 50% right 100%
-            margin -8px 15px 0 0
+            height 16px
+            margin -15px 15px 0 0
+            padding 7px 15px
+            line-height 1.2
+            color $grey_700
             white-space nowrap
             opacity 0
+            background-color $white
+            border-radius 15px
+            box-shadow 0 0 4px rgba($black, .14), 0 4px 8px rgba($black, .28)
             
         
         .icon

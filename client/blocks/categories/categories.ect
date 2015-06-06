@@ -12,7 +12,7 @@
                     <a class="categories__item-card card" href="<%- item.url %>">
                         <span class="categories__item-icon">
                             <% @icon = {name: item.icon } %>
-                            <% include @inputDeps.views.icon %>
+                            <% include @categoriesDeps.views.icon %>
                         </span>
                         <span class="categories__item-name"><%- item.title %></span>
                     </a>

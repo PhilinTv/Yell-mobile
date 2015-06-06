@@ -1,22 +1,24 @@
 .header
     height 60px
     position relative
-    color $white
-    z-index 10
+    z-index 3
     
-    &_fixed &__bar_horizontal
+    &_fixed &__panel,
+    &_fixed &__fab
+        position fixed
+    
+    
+    &__panel
         fixed left 0 top 0 right 0
-    
-    
-    &__bar
-        &_horizontal
-            height 40px
-            padding 10px 0
-            text-align center
-            position relative
-            background-color $red
-            box-shadow 0 2px 0 darken($red, 40%)
+        height 40px
+        padding 10px 0
+        background-color $red_400
+        mixin-material-shadow(2)
             
+            
+    &__logo
+        display block
+        margin 0 auto
             
             
     &__menu-switcher
@@ -64,6 +66,87 @@
                 
             &:after
                 transform rotate3d(0, 0, 1, 45deg)
+                
+                
+    &__menu
+        fixed left -100% top bottom
+        width 100%
+        padding-top 60px
+        overflow auto
+        background-color $white
+        transition .3s
+        
+        &.is-visible
+            left 0
+        
+        &-user
+            padding 10px 0
+            border-bottom 1px solid $grey_300
+            
+            &-item
+                display table
+                padding 10px 30px
+                width 100%
+                box-sizing border-box
+                
+            &-icon
+                display table-cell
+                vertical-align middle
+                width 24px
+
+                .icon
+                    width 24px
+                    height 24px
+                    fill $red_400
+
+            &-caption
+                display table-cell
+                vertical-align middle
+                padding-left 20px
+                
+                .heading
+                    margin 0
+
+            &-subcaption
+                font-size .8em
+                color $grey_500
+            
+        &-categories
+            &-item
+                float left
+                padding 40px 10px 10px
+                width 50%
+                color inherit
+                text-align center
+                text-decoration none
+                box-sizing border-box
+                    
+                @media (min-width: 300px)
+                    width 33.3%
+                    
+                @media (min-width: 500px)
+                    width 25%
+                    
+                @media (min-width: 700px)
+                    width 20%
+                    
+                @media (min-width: 900px)
+                    width 16.6%
+
+                &-icon
+                    display inline-block
+                    vertical-align top
+                    margin-bottom 20px
+                    width 50px
+                    height 50px
+
+                    .icon
+                        stroke $red_400
+
+                &-name
+                    display block
+                    height 30px
+                    line-height 1.2
                     
 
     &__fab

@@ -28,7 +28,7 @@ module.exports = {
     
     // Layouts
     base: {
-        deps: ['modernizr', 'angularjs', 'jquery', 'jquery.bem', 'requirejs', 'iscroll']
+        deps: ['modernizr', 'angularjs', 'jquery', 'jquery.bem', 'requirejs']
     },
     
     common: {
@@ -43,7 +43,7 @@ module.exports = {
         styles: ['index.styl'],
         scripts: ['index.js'],
         view: 'index.ect',
-        deps: ['search', 'categories', 'guides', 'events', 'videos', 'affiche', 'reviews']
+        deps: ['scroller', 'search', 'categories', 'guides', 'events', 'videos', 'affiche', 'reviews']
     },
     
     // Blocks
@@ -77,6 +77,12 @@ module.exports = {
     },
     heading: {
         styles: ['heading.styl']
+    },
+    scroller: {
+        styles: ['scroller.styl'],
+        scripts: ['scroller.js'],
+        view: 'scroller.ect',
+        deps: ['iscroll', 'icon']
     },
     search: {
         styles: ['search.styl'],

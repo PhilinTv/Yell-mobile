@@ -2,15 +2,22 @@ app.controller('Header', function ($scope, $rootScope) {
     var $header = $('.header');
     
     $scope.toggleMenu = function () {
-        $scope.menuIsOpened = !$scope.menuIsOpened;
+        $scope.isMenuOpened = !$scope.isMenuOpened;
+        $rootScope.isBodyOverflowHidden = $scope.isMenuOpened;
     };
     
-    $(window).on('scroll', function () {
-        if ($(this).scrollTop() > $header.offset().top) {
+    $scope.fixedHeader = function () {
+        if ($(window).scrollTop() > $header.offset().top) {
             $header.setMod('fixed')
         }
         else {
             $header.delMod('fixed')
         }
+    };
+    
+    $(window).on('scroll', function () {
+        $scope.fixedHeader();
     });
+    
+    $scope.fixedHeader();
 });

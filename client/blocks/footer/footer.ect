@@ -9,16 +9,16 @@
     <div class="footer__container">
         <div class="footer__collumns">
             <div class="footer__collumn footer__collumn_buttons">
-                <h3 class="heading heading_3 footer__collumn-title">Владельцам бизнеса</h3>
+                <h3 class="heading heading_3">Владельцам бизнеса</h3>
                 <p>
                     <% @button = {
-                        text: 'ДОБАВИТЬ КОМПАНИЮ',
+                        text: 'Добавить компанию',
                         attrs: {
                             type: 'button'
                         },
                         mods: {
                             size: 'xl',
-                            theme: 'dark',
+                            theme: 'grey',
                             width: 'full',
                             shadow: 'yes'
                         }
@@ -27,13 +27,13 @@
                 </p>
                 <p>
                     <% @button = {
-                        text: 'YELL BUSINESS',
+                        text: 'Yell business',
                         attrs: {
                             type: 'button'
                         },
                         mods: {
                             size: 'xl',
-                            theme: 'dark',
+                            theme: 'grey',
                             width: 'full',
                             shadow: 'yes'
                         }
@@ -44,7 +44,7 @@
 
             <% for collumn in @footerNav : %>
                 <div class="footer__collumn">
-                    <h3 class="heading heading_3 footer__collumn-title"><%- collumn.title %></h3>
+                    <h3 class="heading heading_3"><%- collumn.title %></h3>
                     <ul class="footer__nav">
                         <% for item in collumn.items : %>
                             <li class="footer__nav-item">

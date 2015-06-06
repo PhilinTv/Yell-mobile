@@ -1,0 +1,11 @@
+<% @scrollerDeps = @Helpers.getDeps('scroller') %>
+
+
+<div <%- @generateAttrs('scroller', @scroller) %>>
+    <div class="scroller__container">
+        <div class="scroller__content">
+            <%- @scroller.content %>
+        </div>
+        <div class="scroller__spinner"></div>
+    </div>
+</div>

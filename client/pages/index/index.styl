@@ -2,6 +2,9 @@
     &__section
         margin 15px 0
         
+        .heading_2
+            color $grey_500
+        
         &_main
             display table
             width 100%
@@ -10,10 +13,12 @@
             color $white
             background url($dir-path + '/img/index__section_main.bg.png') 0 0 no-repeat
             background-size cover
+            
+            .heading_2
+                color inherit
                 
             .button
                 margin-top 80px
-                text-transform uppercase
         
 
         &_events,
@@ -38,6 +43,8 @@
     &__download-app
         position relative
         display block
+        max-width 400px
+        margin 0 auto
         text-decoration none
         color $white
         text-align center

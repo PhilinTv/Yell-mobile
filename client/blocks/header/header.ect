@@ -6,7 +6,42 @@
 
 
 <div <%- @generateAttrs('header', @header) %>>
-    <div class="header__bar header__bar_horizontal">
+    <div class="header__menu" data-ng-class="isMenuOpened ? 'is-visible' : ''">
+        <div class="header__menu-user">
+            <a class="header__menu-user-item">
+                <span class="header__menu-user-icon">
+                    <% @icon = {name: 'profile'} %>
+                    <% include @headerDeps.views.icon %>
+                </span>
+                <div class="header__menu-user-caption">
+                    <h3 class="heading heading_3">Профиль</h3>
+                </div>
+            </a>
+            <a class="header__menu-user-item">
+                <span class="header__menu-user-icon">
+                    <% @icon = {name: 'region'} %>
+                    <% include @headerDeps.views.icon %>
+                </span>
+                <div class="header__menu-user-caption">
+                    <h3 class="heading heading_3">Регион</h3>
+                    <span class="header__menu-user-subcaption">Петропавловск-Камчатский</span>
+                </div>
+            </a>
+        </div>
+        <div class="header__menu-categories">
+            <% for item in @data.categories.items : %>
+                <a class="header__menu-categories-item" href="<%- item.url %>">
+                    <span class="header__menu-categories-item-icon">
+                        <% @icon = {name: item.icon } %>
+                        <% include @headerDeps.views.icon %>
+                    </span>
+                    <span class="header__menu-categories-item-name"><%- item.title %></span>
+                </a>
+            <% end %>
+        </div>
+    </div>
+    
+    <div class="header__panel">
         <% @logo = {
             attrs: {
                 href: '/'
@@ -16,12 +51,12 @@
         <% include @headerDeps.views.logo %>
 
         <div class="header__menu-switcher no-tap-highlight-color" data-ng-click="toggleMenu()">
-            <span class="header__icon-burger" data-ng-class="menuIsOpened ? 'is-close' : ''"></span>
+            <span class="header__icon-burger" data-ng-class="isMenuOpened ? 'is-close' : ''"></span>
         </div>
-
-        <% @fab = {
-            mix: ['header__fab']
-        } %>
-        <% include @headerDeps.views.fab %>
     </div>
+    
+    <% @fab = {
+        mix: ['header__fab']
+    } %>
+    <% include @headerDeps.views.fab %>
 </div>

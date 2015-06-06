@@ -1,7 +1,7 @@
 .input
     display inline-block
     position relative
-    color $gray-dark
+    color $grey_700
     
     
     &__control
@@ -14,7 +14,7 @@
         border-radius 2px
         box-sizing border-box
         
-        placeholder-mixin(inherit)
+        mixin-placeholder(inherit)
 
         &:focus
             outline none
@@ -53,11 +53,12 @@
                 font-size 16px
 
             textarea
-                height 148px
+                height 150px
                 padding 13px
                 font-sze 16px
 
             select
+                height 44px
                 padding 13px 0 13px 13px
 
             option
@@ -69,6 +70,30 @@
             .input__icon
                 width 44px
                 
+        &_xl
+            input
+                height 50px
+                padding 15px
+                font-size 16px
+
+            textarea
+                height 180px
+                padding 15px
+                font-sze 16px
+
+            select
+                height 50px
+                padding 15px 0 15px 15px
+
+            option
+                padding 15px
+                
+            &.input_indent_left .input__control
+                padding-left 50px
+                
+            .input__icon
+                width 50px
+                
 
     &_width_full
         display block
@@ -78,8 +103,6 @@
         box-shadow 0 2px 2px rgba($black, .2)
                 
 
-    &_theme_cobalt-light &__control
-        color $cobalt-light
-        
-    &_theme_cobalt-light &__icon
-        color $cobalt-light
+    &_theme_cobalt &__control,
+    &_theme_cobalt &__icon
+        color $cobalt

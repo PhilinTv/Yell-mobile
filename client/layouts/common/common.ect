@@ -9,13 +9,15 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="mobile-web-app-capable" content="yes">
         <title>Yell mobile</title>
         
         <% for k, v of @commonDeps.styles : %>
             <link rel="stylesheet" href="<%- v %>">
         <% end %>
     </head>
-    <body <%- @generateAttrs('common', @common) %>>
+    <body <%- @generateAttrs('common', @common) %> data-ng-class="isBodyOverflowHidden ? 'is-overflow-hidden' : ''">
         <% include @commonDeps.views.svg %>
         <% include @commonDeps.views.header %>
         
@@ -32,5 +34,6 @@
         <% for k, v of @commonDeps.scripts : %>
             <script src="<%- v %>"></script>
         <% end %>
+        <div class="common__overlay" data-ng-class="commonOverlay ? 'is-visible' : ''" style="z-index: {{ commonOverlay || -1}};"></div>
     </body>
 </html>

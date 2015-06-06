@@ -1,0 +1,44 @@
+<% @tabsDeps = @Helpers.getDeps('tabs') %>
+
+<% @tabs = @tabs || {} %>
+<% @tabs.items = @tabs.items || [] %>
+<% @tabs.options = @tabs.options || {} %>
+<% @tabs.attrs = @tabs.attrs || {} %>
+<% @tabs.attrs['data-config'] = @tabs.options || {} %>
+<% @tabs.attrs['data-ng-controller'] = 'Tabs' %>
+
+
+<div <%- @generateAttrs('tabs', @tabs) %>>
+    <div class="tabs__items">
+        <% for item in @tabs.items : %>
+            <span class="tabs__item" data-tab="<%- item.tab %>" style="width: <%- (100 / @tabs.items.length) %>%;" data-ng-click="switchTab($event)">
+                <%- item.caption %>
+            </span>
+        <% end %>
+    </div>
+    
+    <div class="tabs__line" style="width: <%- (100 / @tabs.items.length) %>%; margin-left: {{ lineOffset }}px;"></div>
+
+    <div class="tabs__content">
+        <%- @tabs.content %>
+    </div>
+
+    <% if @tabs.options.more : %>
+        <div class="tabs__more">
+            <% @button = {
+                text: 'Смотреть ещё',
+                attrs: {
+                    type: 'button'
+                },
+                mods: {
+                    size: 'm',
+                    theme: 'red'
+                }
+            } %>
+            <% include @tabsDeps.views.button %>
+        </div>
+    <% end %>
+</div>
+
+
+<% @tabs = false %>

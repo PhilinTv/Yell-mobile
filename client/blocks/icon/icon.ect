@@ -1,6 +1,8 @@
 <% @iconDeps = @Helpers.getDeps('icon') %>
 
+<% @icon = @icon || {} %>
+<% @icon.options = @icon.options || {} %>
 
 <svg <%- @generateAttrs('icon', @icon) %> viewBox="0 0 64 64" width="64" height="64">
-    <use xlink:href="#icon-<%- @icon.name %>"></use>
+    <use xlink:href="<% if !@icon.options.isAngular : %>#<% end %><%- @icon.name %>"></use>
 </svg>

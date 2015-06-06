@@ -1,11 +1,24 @@
 <% @scrollerDeps = @Helpers.getDeps('scroller') %>
 
+<% @scroller = @scroller || {} %>
+<% @scroller.options = @scroller.options || {} %>
+<% @scroller.attrs = @scroller.attrs || {} %>
+<% @scroller.attrs['data-config'] = @scroller.options || {} %>
+<% @scroller.attrs['data-ng-controller'] = 'Scroller' %>
+
 
 <div <%- @generateAttrs('scroller', @scroller) %>>
     <div class="scroller__container">
         <div class="scroller__content">
             <%- @scroller.content %>
         </div>
-        <div class="scroller__spinner"></div>
+        <% if @scroller.options.url : %>
+            <div class="scroller__spinner" data-ng-class="isNoData ? 'is-hidden' : ''">
+                <% include @scrollerDeps.views.spinner %>
+            </div>
+        <% end %>
     </div>
 </div>
+
+
+<% @scroller = false %>

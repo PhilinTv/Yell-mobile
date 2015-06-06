@@ -1,5 +1,6 @@
 <% @buttonDeps = @Helpers.getDeps('button') %>
 
+<% @button = @button || {} %>
 <% @button.attrs = @button.attrs || {} %>
 <% @button.mods = @button.mods || {} %>
 <% @button.mix = @button.mix || [] %>
@@ -27,3 +28,6 @@
         </span>
     <% end %>
 </button>
+
+
+<% @button = false %>

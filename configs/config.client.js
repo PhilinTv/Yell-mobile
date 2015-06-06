@@ -35,7 +35,7 @@ module.exports = {
         styles: ['common.styl'],
         scripts: ['common.js'],
         view: 'common.ect',
-        deps: ['svg', 'icon', 'link', 'button', 'input', 'form', 'heading', 'logo', 'header', 'footer', 'share', 'card']
+        deps: ['svg', 'icon', 'link', 'button', 'input', 'form', 'heading', 'logo', 'header', 'footer', 'share', 'card', 'spinner']
     },
     
     // Pages
@@ -43,7 +43,7 @@ module.exports = {
         styles: ['index.styl'],
         scripts: ['index.js'],
         view: 'index.ect',
-        deps: ['scroller', 'search', 'categories', 'guides', 'events', 'videos', 'affiche', 'reviews']
+        deps: ['scroller', 'tabs', 'search', 'categories', 'guides', 'events', 'videos', 'affiche', 'reviews']
     },
     
     // Blocks
@@ -82,7 +82,13 @@ module.exports = {
         styles: ['scroller.styl'],
         scripts: ['scroller.js'],
         view: 'scroller.ect',
-        deps: ['iscroll', 'icon']
+        deps: ['iscroll', 'icon', 'spinner']
+    },
+    tabs: {
+        styles: ['tabs.styl'],
+        scripts: ['tabs.js'],
+        view: 'tabs.ect',
+        deps: ['button', 'spinner']
     },
     search: {
         styles: ['search.styl'],
@@ -99,12 +105,12 @@ module.exports = {
         styles: ['header.styl'],
         scripts: ['header.js'],
         view: 'header.ect',
-        deps: ['icon', 'link', 'logo', 'fab']
+        deps: ['icon', 'button', 'logo', 'fab', 'categories']
     },
     footer: {
         styles: ['footer.styl'],
         view: 'footer.ect',
-        deps: ['button', 'icon']
+        deps: ['button', 'icon', 'scroller']
     },
     fab: {
         styles: ['fab.styl'],
@@ -118,6 +124,10 @@ module.exports = {
     },
     card: {
         styles: ['card.styl']
+    },
+    spinner: {
+        styles: ['spinner.styl'],
+        view: 'spinner.ect'
     },
     categories: {
         styles: ['categories.styl'],

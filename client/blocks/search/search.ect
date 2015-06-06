@@ -1,5 +1,7 @@
 <% @searchDeps = @Helpers.getDeps('search') %>
 
+<% @search = @search || {} %>
+
 
 <div <%- @generateAttrs('search', @search) %>>
     <% @form = {
@@ -14,19 +16,17 @@
                     name: 'place',
                     placeholder: 'Найти',
                     required: true,
-                    autocomplete: 'off'
+                    autocomplete: 'off',
+                    'data-autocomplete': {
+                        url: 'http://www.yell.ru/moscow/search/suggest-title/',
+                        queryParam: 'text',
+                        tpl: 'place-dropdown-tpl'
+                    }
                 },
                 mods: {
                     size: 'xl',
                     width: 'full',
                     shadow: 'yes'
-                },
-                options: {
-                    autocomplete: {
-                        url: 'http://www.yell.ru/moscow/search/suggest-title/',
-                        queryParam: 'text',
-                        dropdownTpl: 'place-dropdown-tpl'
-                    }
                 }
             },
             {
@@ -39,20 +39,18 @@
                     name: 'location',
                     placeholder: 'Где',
                     required: true,
-                    autocomplete: 'off'
+                    autocomplete: 'off',
+                    'data-autocomplete': {
+                        url: 'http://www.yell.ru/moscow/search/suggest-location/',
+                        queryParam: 'text',
+                        tpl: 'location-dropdown-tpl'
+                    }
                 },
                 mods: {
                     size: 'xl',
                     width: 'full',
                     theme: 'cobalt',
                     shadow: 'yes'
-                },
-                options: {
-                    autocomplete: {
-                        url: 'http://www.yell.ru/moscow/search/suggest-location/',
-                        queryParam: 'text',
-                        dropdownTpl: 'location-dropdown-tpl'
-                    }
                 }
             },
             {
@@ -86,3 +84,6 @@
         </ul>
     </script>
 </div>
+
+
+<% @search = false %>

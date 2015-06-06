@@ -1,5 +1,6 @@
 <% @formDeps = @Helpers.getDeps('form') %>
 
+<% @form = @form || {} %>
 <% @form.attrs = @form.attrs || {} %>
 <% @form.attrs.method = @form.attrs.method || 'post' %>
 <% @form.attrs.enctype = @form.attrs.enctype || 'multipart/form-data' %>
@@ -20,3 +21,6 @@
         </div>
     <% end %>
 </form>
+
+
+<% @form = false %>

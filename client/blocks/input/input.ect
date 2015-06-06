@@ -1,5 +1,6 @@
 <% @inputDeps = @Helpers.getDeps('input') %>
 
+<% @input = @input || {} %>
 <% @input.attrs = @input.attrs || {} %>
 <% @input.mods = @input.mods || {} %>
 <% @input.options = @input.options || {} %>
@@ -9,12 +10,6 @@
     <% @input.mods.indent = @input.icon.position %>
 <% end %>
 <% @input.attrs.type = @input.attrs.type || 'text' %>
-<% if @input.options.autocomplete : %>
-    <% @input.attrs['data-autocomplete'] = JSON.stringify({
-        url: @input.options.autocomplete.url,
-        queryParam: @input.options.autocomplete.queryParam
-    }) %>
-<% end %>
 
 
 <% @inputAttrs = @Helpers.generateAttrs('input', @input) %>
@@ -36,7 +31,8 @@
             </span>
         <% end %>
     </label>
-    <% if @input.options.autocomplete : %>
-        <div class="input__dropdown" data-ng-include="'<%- @input.options.autocomplete.dropdownTpl %>'"></div>
-    <% end %>
+    <div class="input__dropdown"></div>
 </div>
+
+
+<% @input = false %>

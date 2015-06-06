@@ -1,24 +1,38 @@
 <% @guidesDeps = @Helpers.getDeps('guides') %>
 
-<% @guides.attrs = @guides.attrs || {} %>
-<% @guides.attrs['data-iscroll'] = 'horizontal' %>
+<% @guides = @guides || {} %>
+<% @guides.items = @guides.items || [] %>
 
 
 <div <%- @generateAttrs('guides', @guides) %>>
-    <div class="guides__container">
-        <div class="guides__items">
-            <% for item in @guides.items : %>
-                <div class="guides__item">
-                    <div class="guides__item-card card">
-                        <a class="guides__item-image" href="<%- item.url %>" style="background-image: url('<%- item.image %>')"></a>
-                        <div class="guides__item-body">
-                            <h3 class="heading heading_3 guides__item-title"><a href="<%- item.url %>"><%- item.title %></a></h3>
-                            <div class="guides__item-text"><%- item.text %></div>
-                            <div class="guides__item-date"><%- item.date %></div>
-                        </div>
+    <div class="guides__items js-container">
+        <% for item in @guides.items : %>
+            <div class="guides__item">
+                <div class="guides__item-card card">
+                    <a class="guides__item-image" href="<%- item.url %>" style="background-image: url('<%- item.image %>')"></a>
+                    <div class="guides__item-body">
+                        <h3 class="heading heading_3 guides__item-title"><a href="<%- item.url %>"><%- item.title %></a></h3>
+                        <div class="guides__item-text"><%- item.text %></div>
+                        <small class="guides__item-date"><%- item.date %></small>
                     </div>
                 </div>
-            <% end %>
-        </div>
+            </div>
+        <% end %>
     </div>
+
+    <script type="text/ng-template" id="guides-tpl">
+        <div class="guides__item" data-ng-repeat="item in data track by $index">
+            <div class="guides__item-card card">
+                <a class="guides__item-image" href="{{ item.url }}" style="background-image: url('{{ item.image }}')"></a>
+                <div class="guides__item-body">
+                    <h3 class="heading heading_3 guides__item-title"><a href="{{ item.url }}">{{ item.title }}</a></h3>
+                    <div class="guides__item-text">{{ item.text }}</div>
+                    <small class="guides__item-date">{{ item.date }}</small>
+                </div>
+            </div>
+        </div>
+    </script>
 </div>
+
+
+<% @guides = false %>

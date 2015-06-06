@@ -13,6 +13,8 @@
         <meta name="mobile-web-app-capable" content="yes">
         <title>Yell mobile</title>
         
+        <link href='http://fonts.googleapis.com/css?family=Roboto:500,400italic,700italic,700,500italic,400&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
+        
         <% for k, v of @commonDeps.styles : %>
             <link rel="stylesheet" href="<%- v %>">
         <% end %>
@@ -27,6 +29,8 @@
 
         <% include @commonDeps.views.footer %>
         
+        <div class="common__spinner" data-ng-class="commonSpinner ? 'is-visible' : ''"></div>
+        
         <% for k, v of @Helpers.getDeps('base').scripts : %>
             <script src="<%- v %>"></script>
         <% end %>
@@ -34,6 +38,5 @@
         <% for k, v of @commonDeps.scripts : %>
             <script src="<%- v %>"></script>
         <% end %>
-        <div class="common__overlay" data-ng-class="commonOverlay ? 'is-visible' : ''" style="z-index: {{ commonOverlay || -1}};"></div>
     </body>
 </html>

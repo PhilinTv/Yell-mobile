@@ -7,61 +7,18 @@
 
 <div <%- @generateAttrs('footer', @footer) %>>
     <div class="footer__container">
-        <div class="footer__collumns">
-            <div class="footer__collumn footer__collumn_buttons">
-                <h3 class="heading heading_3">Владельцам бизнеса</h3>
-                <p>
-                    <% @button = {
-                        text: 'Добавить компанию',
-                        attrs: {
-                            type: 'button'
-                        },
-                        mods: {
-                            size: 'xl',
-                            theme: 'grey',
-                            width: 'full',
-                            shadow: 'yes'
-                        }
-                    } %>
-                    <% include @footerDeps.views.button %>
-                </p>
-                <p>
-                    <% @button = {
-                        text: 'Yell business',
-                        attrs: {
-                            type: 'button'
-                        },
-                        mods: {
-                            size: 'xl',
-                            theme: 'grey',
-                            width: 'full',
-                            shadow: 'yes'
-                        }
-                    } %>
-                    <% include @footerDeps.views.button %>
-                </p>
-            </div>
-
-            <% for collumn in @footerNav : %>
-                <div class="footer__collumn">
-                    <h3 class="heading heading_3"><%- collumn.title %></h3>
-                    <ul class="footer__nav">
-                        <% for item in collumn.items : %>
-                            <li class="footer__nav-item">
-                                <a href="<%- item.url %>">
-                                    <% if item.icon : %>
-                                        <span class="footer__nav-item-icon">
-                                            <% @icon = {name: item.icon} %>
-                                            <% include @footerDeps.views.icon %>
-                                        </span>
-                                    <% end %>
-                                    <span class="footer__nav-item-caption"><%- item.caption %></span>
-                                </a>
-                            </li>
-                        <% end %>
-                    </ul>
-                </div>
-            <% end %>
-        </div>
+        <% @collumnsHtml = include 'blocks/footer/partial/footer__collumns.ect' %>
+        
+        <% @scroller = {
+            content: @collumnsHtml,
+            options: {
+                axis: 'x'
+            }
+        } %>
+        
+        <% include @footerDeps.views.scroller %>
     </div>
 </div>
+
+
+<% @footer = false %>

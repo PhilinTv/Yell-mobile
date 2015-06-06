@@ -1,5 +1,8 @@
 <% @reviewsDeps = @Helpers.getDeps('reviews') %>
 
+<% @reviews = @reviews || {} %>
+<% @reviews.items = @reviews.items || [] %>
+
 
 <div <%- @generateAttrs('reviews', @reviews) %>>
     <% for item in @reviews.items : %>
@@ -14,15 +17,18 @@
                     <div class="reviews__item-company-name">
                         <a href="<%- item.company.url %>"><%- item.company.name %></a>
                     </div>
-                    <div class="reviews__item-company-category">
-                        <a href="<%- item.company.category.url %>"><%- item.company.category.title %></a>
-                    </div>
+                    <a class="reviews__item-company-category" href="<%- item.company.category.url %>">
+                        <small><%- item.company.category.name %></small>
+                    </a>
                 </div>
             </div>
             <div class="reviews__item-text"><%- item.text %></div>
-            <div class="reviews__item-author">
-                <a href="<%- item.author.url %>"><%- item.author.name %></a>
-            </div>
+            <a class="reviews__item-author" href="<%- item.author.url %>">
+                <small><%- item.author.name %></small>
+            </a>
         </div>
     <% end %>
 </div>
+
+
+<% @reviews = false %>

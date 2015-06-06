@@ -1,5 +1,5 @@
-app.controller('Header', function ($scope, $rootScope) {
-    var $header = $('.header');
+app.controller('Header', function ($scope, $rootScope, $element) {
+    var $header = $($element);
     
     $scope.toggleMenu = function () {
         $scope.isMenuOpened = !$scope.isMenuOpened;
@@ -8,10 +8,10 @@ app.controller('Header', function ($scope, $rootScope) {
     
     $scope.fixedHeader = function () {
         if ($(window).scrollTop() > $header.offset().top) {
-            $header.setMod('fixed')
+            $scope.isHeaderFixed = true;
         }
         else {
-            $header.delMod('fixed')
+            $scope.isHeaderFixed = false;
         }
     };
     

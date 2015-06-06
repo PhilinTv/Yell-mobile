@@ -3,13 +3,13 @@
     position relative
     z-index 3
     
-    &_fixed &__panel,
-    &_fixed &__fab
+    &.is-fixed &__panel,
+    &.is-fixed &__fab
         position fixed
     
     
     &__panel
-        fixed left 0 top 0 right 0
+        absolute left 0 top 0 right 0
         height 40px
         padding 10px 0
         background-color $red_400
@@ -87,6 +87,8 @@
                 display table
                 padding 10px 30px
                 width 100%
+                color inherit
+                text-decoration none
                 box-sizing border-box
                 
             &-icon
@@ -107,47 +109,44 @@
                 .heading
                     margin 0
 
-            &-subcaption
-                font-size .8em
+            small
                 color $grey_500
-            
+                
         &-categories
-            &-item
-                float left
-                padding 40px 10px 10px
-                width 50%
-                color inherit
-                text-align center
-                text-decoration none
-                box-sizing border-box
-                    
-                @media (min-width: 300px)
-                    width 33.3%
-                    
-                @media (min-width: 500px)
-                    width 25%
-                    
-                @media (min-width: 700px)
-                    width 20%
-                    
-                @media (min-width: 900px)
-                    width 16.6%
-
-                &-icon
-                    display inline-block
-                    vertical-align top
-                    margin-bottom 20px
-                    width 50px
-                    height 50px
-
-                    .icon
-                        stroke $red_400
-
-                &-name
+            clearfix()
+            
+            .categories
+                &__items
                     display block
-                    height 30px
-                    line-height 1.2
+
+                &__item
+                    float left
+                    padding 0
+                    width 50%
+
+                    @media (min-width: 300px)
+                        width 33.3%
+
+                    @media (min-width: 500px)
+                        width 25%
+
+                    @media (min-width: 700px)
+                        width 20%
+
+                    @media (min-width: 900px)
+                        width 16.6%
+
+                    &-card
+                        width auto
+                        box-shadow none
+                    
+        &-more
+            padding 15px 0
+            text-align center
+            
+            .button
+                border-radius 20px
                     
 
     &__fab
-        absolute top 30px right 15px
+        absolute top 32px right 15px

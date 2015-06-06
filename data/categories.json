@@ -1,0 +1,25 @@
+[{
+    "url": "http://www.yell.ru/moscow/top/restorany/",
+    "icon": "restaurants",
+    "name": "Рестораны"
+}, {
+    "url": "http://www.yell.ru/moscow/top/shopping/",
+    "icon": "shoping",
+    "name": "Шопинг"
+}, {
+    "url": "http://www.yell.ru/moscow/top/avto-moto/",
+    "icon": "auto",
+    "name": "Авто, мото"
+}, {
+    "url": "http://www.yell.ru/moscow/top/bars-pubs/",
+    "icon": "bars",
+    "name": "Бары и пабы"
+}, {
+    "url": "http://www.yell.ru/moscow/top/gosudarstvo-i-obshchestvo/",
+    "icon": "state",
+    "name": "Государство и общество"
+}, {
+    "url": "http://www.yell.ru/moscow/top/domashnie-zhivotnye-rasteniya/",
+    "icon": "animals",
+    "name": "Животные и растения"
+}]

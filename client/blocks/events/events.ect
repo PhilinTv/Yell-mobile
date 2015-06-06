@@ -1,35 +1,28 @@
 <% @eventsDeps = @Helpers.getDeps('events') %>
 
-<% @events.mix = @events.mix || [] %>
-<% @events.mix.push('card') %>
+<% @events = @events || {} %>
+<% @events.items = @events.items || [] %>
 
 
 <div <%- @generateAttrs('events', @events) %>>
-    <div class="events__filter">
-        <span class="events__filter-item events__filter-item_active" data-filter="all">Все</span>
-        <span class="events__filter-item" data-filter="current">Текущие</span>
-        <span class="events__filter-item" data-filter="future">Будущие</span>
-    </div>
-    <div class="events__items">
+    <div class="events__items js-container">
         <% for item in @events.items : %>
             <div class="events__item">
                 <a class="events__item-image" href="<%- item.url %>" style="background-image: url('<%- item.image %>')"></a>
                 <div class="events__item-title"><a href="<%- item.url %>"><%- item.title %></a></div>
-                <div class="events__item-date"><%- item.date %></div>
+                <small class="events__item-date"><%- item.date %></small>
             </div>
         <% end %>
     </div>
-    <div class="events__more">
-        <% @button = {
-            text: 'Смотреть ещё',
-            attrs: {
-                type: 'button'
-            },
-            mods: {
-                size: 'm',
-                theme: 'red'
-            }
-        } %>
-        <% include @eventsDeps.views.button %>
-    </div>
+
+    <script type="text/ng-template" id="events-tpl">
+        <div class="events__item" data-ng-repeat="item in data track by $index">
+            <a class="events__item-image" href="{{ item.url }}" style="background-image: url('{{ item.image }}')"></a>
+            <div class="events__item-title"><a href="{{ item.url }}">{{ item.title }}</a></div>
+            <small class="events__item-date">{{ item.date }}</small>
+        </div>
+    </script>
 </div>
+
+
+<% @events = false %>

@@ -5,7 +5,7 @@
 <% @header.attrs['data-ng-controller'] = 'Header' %>
 
 
-<div <%- @generateAttrs('header', @header) %>>
+<div <%- @generateAttrs('header', @header) %> data-ng-class="isHeaderFixed ? 'is-fixed' : ''">
     <div class="header__menu" data-ng-class="isMenuOpened ? 'is-visible' : ''">
         <div class="header__menu-user">
             <a class="header__menu-user-item">
@@ -24,20 +24,27 @@
                 </span>
                 <div class="header__menu-user-caption">
                     <h3 class="heading heading_3">Регион</h3>
-                    <span class="header__menu-user-subcaption">Петропавловск-Камчатский</span>
+                    <small>Петропавловск-Камчатский</small>
                 </div>
             </a>
         </div>
         <div class="header__menu-categories">
-            <% for item in @data.categories.items : %>
-                <a class="header__menu-categories-item" href="<%- item.url %>">
-                    <span class="header__menu-categories-item-icon">
-                        <% @icon = {name: item.icon } %>
-                        <% include @headerDeps.views.icon %>
-                    </span>
-                    <span class="header__menu-categories-item-name"><%- item.title %></span>
-                </a>
-            <% end %>
+            <% @categories = {items: @Data.categories} %>
+            <% include @headerDeps.views.categories %>
+        </div>
+        
+        <div class="header__menu-more">
+            <% @button = {
+                text: 'Смотреть ещё',
+                attrs: {
+                    type: 'button'
+                },
+                mods: {
+                    size: 'm',
+                    theme: 'red'
+                }
+            } %>
+            <% include @headerDeps.views.button %>
         </div>
     </div>
     
@@ -60,3 +67,6 @@
     } %>
     <% include @headerDeps.views.fab %>
 </div>
+
+
+<% @header = false %>

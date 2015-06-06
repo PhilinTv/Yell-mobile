@@ -64,7 +64,10 @@ app.all('*', function  (req, res, next) {
 		app.locals.Request = req;
 		app.locals.Lang = lang;
 		app.locals.Helpers = helpers;
-        app.locals.footerNav = require('./data/footerNav');
+        app.locals.Data = {
+            footerNav: require('./data/footerNav'),
+            categories: require('./data/categories')
+        };
 		
 		res.render('layouts/main/main', {view: view, data: data});
 	}
@@ -92,13 +95,18 @@ app.get(/\.(js|css|png|jpg|gif|svg|eot|ttf|woff|woff2)$/, function (req, res, ne
 });
 
 
+app.get(/\.(json)$/, function (req, res, next) {
+	var pathname = req._parsedUrl.pathname,
+		filePath = process.cwd() + pathname;
+	
+	res.type(mime.lookup(filePath));
+	res.end(fs.readFileSync(filePath));
+});
+
+
 app.get('/', function (req, res, next) {
 	res.render('index', {
-        categories: require('./data/categories'),
-        guides: require('./data/guides'),
         events: require('./data/events'),
-        videos: require('./data/videos'),
-        affiche: require('./data/affiche'),
         reviews: require('./data/reviews')
     });
 });

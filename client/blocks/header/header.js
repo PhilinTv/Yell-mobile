@@ -1,9 +1,9 @@
 app.controller('Header', function ($scope, $rootScope, $element) {
     var $header = $($element);
     
-    $scope.toggleMenu = function () {
-        $scope.isMenuOpened = !$scope.isMenuOpened;
-        $rootScope.isBodyOverflowHidden = $scope.isMenuOpened;
+    $scope.toggleSidebar = function () {
+        $scope.isSidebarOpened = !$scope.isSidebarOpened;
+        $rootScope.isBodyOverflowHidden = $scope.isSidebarOpened;
     };
     
     $scope.fixedHeader = function () {

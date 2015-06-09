@@ -7,19 +7,24 @@ html, body
     background $grey_100
     
     
-.common
-    &__overlay
-        fixed left top right bottom
-        opacity 0
-        background-color rgba($black, .8)
-        transition opacity .3s
-        
-        &.is-visible
-            opacity 1
+h1, h2, h3, h4, h5, h6, p
+    margin 16px 0
+    font-weight 400
             
             
-small
-    font-size .9em
+.whiteframe
+    background-color $white
+    
+    &_z1
+        mixin-material-shadow(1)
+    &_z2
+        mixin-material-shadow(2)
+    &_z3
+        mixin-material-shadow(3)
+    &_z4
+        mixin-material-shadow(4)
+    &_z5
+        mixin-material-shadow(5)
     
     
 .is-hidden

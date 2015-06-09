@@ -8,6 +8,7 @@ var express = require('express'),
 	io = require('socket.io')(http)
 	mime = require('mime'),
     favicon = require('serve-favicon'),
+    request = require('request'),
 	builder = require('./builder'),
 	ECT = require('ect'),
 	ectRenderer = ECT({ watch: true, root: __dirname + '/client', ext: '.ect'}),
@@ -103,6 +104,15 @@ app.get(/\.(json)$/, function (req, res, next) {
 	
 	res.type(mime.lookup(filePath));
 	res.end(fs.readFileSync(filePath));
+});
+
+app.get('/json/external', function (req, res, next) {
+	request.get(req.query.url, req.query.params, function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+            console.log(response)
+            res.json({});
+        }
+    });
 });
 
 

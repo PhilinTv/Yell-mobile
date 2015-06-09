@@ -2,21 +2,36 @@
 
 <% @events = @events || {} %>
 <% @events.items = @events.items || [] %>
+<% @events.mix = @events.mix || [] %>
+<% @events.mix.push('whiteframe') %>
+<% @events.mix.push('whiteframe_z1') %>
 
 
 <div <%- @generateAttrs('events', @events) %>>
-    <div class="events__items js-container">
-        <% for item in @events.items : %>
-            <div class="events__item">
-                <a class="events__item-image" href="<%- item.url %>" style="background-image: url('<%- item.image %>')"></a>
-                <div class="events__item-title"><a href="<%- item.url %>"><%- item.title %></a></div>
-                <small class="events__item-date"><%- item.date %></small>
-            </div>
-        <% end %>
+    <% @tabs = {
+        items: [{
+            params: {filter: 'all'},
+            label: 'Все'
+        }, {
+            params: {filter: 'current'},
+            label: 'Текущие'
+        }, {
+            params: {filter: 'future'},
+            label: 'Будущие'
+        }],
+        options: {
+            url: '/data/events.json',
+            tpl: 'events-tpl'
+        }
+    } %>
+    <% include @eventsDeps.views.tabs %>
+    
+    <div class="events__more">
+        <a class="button button_size_m button_theme_red" href="/">Смотреть ещё</a>
     </div>
 
     <script type="text/ng-template" id="events-tpl">
-        <div class="events__item" data-ng-repeat="item in data track by $index">
+        <div class="events__item list__item" ng-repeat="item in data track by $index">
             <a class="events__item-image" href="{{ item.url }}" style="background-image: url('{{ item.image }}')"></a>
             <div class="events__item-title"><a href="{{ item.url }}">{{ item.title }}</a></div>
             <small class="events__item-date">{{ item.date }}</small>

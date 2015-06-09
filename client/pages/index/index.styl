@@ -1,9 +1,6 @@
 .index
     &__section
-        margin 15px 0
-        
-        .heading_2
-            color $grey_500
+        margin 16px 0
         
         &_main
             display table
@@ -21,19 +18,23 @@
                 margin-top 80px
         
 
-        &_events,
+        &_padding,
         &_reviews
-            padding 0 15px
+            padding 0 16px
             
-        &_categories,
-        &_guides,
-        &_videos,
-        &_affiche
-            .heading_2
-                padding 0 15px
+        &_scroller
+            h2
+                padding 0 16px
                 
             .scroller__container
-                padding 0 12px
+                padding 0 13px
+                
+            .categories__item,
+            .guides__item,
+            .videos__item,
+            .affiche__item
+                display table-cell
+                float none
                 
 
     &__search
@@ -41,7 +42,7 @@
         vertical-align bottom
         width 100%
         height 100%
-        padding 15px
+        padding 16px
                 
 
     &__download-app

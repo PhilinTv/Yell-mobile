@@ -13,7 +13,7 @@
 
 
 <% @inputAttrs = @Helpers.generateAttrs('input', @input) %>
-<div class="<%- @inputAttrs.class %>" data-ng-controller="Input">
+<div class="<%- @inputAttrs.class %>" ng-controller="Input">
     <label>
         <input
             class="input__control"
@@ -22,7 +22,7 @@
                     <%- k %><% if v != true : %>="<%= v %>"<% end %>
                 <% end %>
             <% end %>
-            data-ng-keyup="keyup($event)"
+            ng-keyup="keyup()"
         >
         <% if @input.icon : %>
             <span class="input__icon input__icon_position_<%- @input.icon.position %>">
@@ -31,7 +31,7 @@
             </span>
         <% end %>
     </label>
-    <div class="input__dropdown"></div>
+    <div class="input__dropdown whiteframe whiteframe_z2"></div>
 </div>
 
 

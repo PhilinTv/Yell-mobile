@@ -2,40 +2,34 @@ module.exports = {
     
     // Vendors
     modernizr: {
-        scripts: ['modernizr.js']
+        scripts: ['//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js']
     },
     angularjs: {
-        scripts: ['angular.min.js']
+        scripts: ['//ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js']
     },
     requirejs: {
-        scripts: ['require.js']
+        scripts: ['//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.18/require.min.js']
     },
     jquery: {
-        scripts: ['jquery-2.1.3.min.js']
+        scripts: ['//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js']
     },
     'jquery.bem': {
         scripts: ['jquery.bem.js']
     },
-    'jquery.inputmask': {
-        scripts: ['jquery.inputmask.min.js']
-    },
-    'jquery.nicescroll': {
-        scripts: ['jquery.nicescroll.min.js']
-    },
     iscroll: {
-        scripts: ['iscroll.js']
+        scripts: ['//cdnjs.cloudflare.com/ajax/libs/iScroll/5.1.1/iscroll-min.js']
     },
     
     // Layouts
-    base: {
-        deps: ['modernizr', 'angularjs', 'jquery', 'jquery.bem', 'requirejs']
+    vendor: {
+        deps: ['modernizr', 'angularjs', 'jquery', 'requirejs', 'iscroll']
     },
     
     common: {
         styles: ['common.styl'],
         scripts: ['common.js'],
         view: 'common.ect',
-        deps: ['svg', 'icon', 'link', 'button', 'input', 'form', 'heading', 'logo', 'header', 'footer', 'share', 'card', 'spinner']
+        deps: ['svg', 'icon', 'link', 'button', 'input', 'form', 'header', 'footer', 'share', 'card', 'spinner']
     },
     
     // Pages
@@ -75,20 +69,17 @@ module.exports = {
         view: 'form.ect',
         deps: ['icon', 'input', 'button']
     },
-    heading: {
-        styles: ['heading.styl']
-    },
     scroller: {
         styles: ['scroller.styl'],
         scripts: ['scroller.js'],
         view: 'scroller.ect',
-        deps: ['iscroll', 'icon', 'spinner']
+        deps: ['spinner']
     },
     tabs: {
         styles: ['tabs.styl'],
         scripts: ['tabs.js'],
         view: 'tabs.ect',
-        deps: ['button', 'spinner']
+        deps: ['spinner']
     },
     search: {
         styles: ['search.styl'],
@@ -105,18 +96,24 @@ module.exports = {
         styles: ['header.styl'],
         scripts: ['header.js'],
         view: 'header.ect',
-        deps: ['icon', 'button', 'logo', 'fab', 'categories']
+        deps: ['logo', 'fab', 'sidebar']
     },
     footer: {
         styles: ['footer.styl'],
         view: 'footer.ect',
         deps: ['button', 'icon', 'scroller']
     },
+    sidebar: {
+        styles: ['sidebar.styl'],
+        scripts: ['sidebar.js'],
+        view: 'sidebar.ect',
+        deps: ['icon', 'button', 'categories']
+    },
     fab: {
         styles: ['fab.styl'],
         scripts: ['fab.js'],
         view: 'fab.ect',
-        deps: ['icon']
+        deps: ['button', 'icon']
     },
     stars: {
         styles: ['stars.styl'],
@@ -124,6 +121,9 @@ module.exports = {
     },
     card: {
         styles: ['card.styl']
+    },
+    list: {
+        styles: ['list.styl']
     },
     spinner: {
         styles: ['spinner.styl'],
@@ -133,18 +133,19 @@ module.exports = {
         styles: ['categories.styl'],
         scripts: ['categories.js'],
         view: 'categories.ect',
-        deps: ['icon']
+        deps: ['card', 'icon']
     },
     guides: {
         styles: ['guides.styl'],
         scripts: ['guides.js'],
-        view: 'guides.ect'
+        view: 'guides.ect',
+        deps: ['card']
     },
     events: {
         styles: ['events.styl'],
         scripts: ['events.js'],
         view: 'events.ect',
-        deps: ['button']
+        deps: ['button', 'tabs', 'list', 'card']
     },
     videos: {
         styles: ['videos.styl'],
@@ -155,13 +156,14 @@ module.exports = {
     affiche: {
         styles: ['affiche.styl'],
         scripts: ['affiche.js'],
-        view: 'affiche.ect'
+        view: 'affiche.ect',
+        deps: ['card']
     },
     reviews: {
         styles: ['reviews.styl'],
         scripts: ['reviews.js'],
         view: 'reviews.ect',
-        deps: ['stars']
+        deps: ['stars', 'card']
     },
     share: {
         styles: ['share.styl'],

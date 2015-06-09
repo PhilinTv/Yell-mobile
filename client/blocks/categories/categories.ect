@@ -5,19 +5,17 @@
 
 
 <div <%- @generateAttrs('categories', @categories) %>>
-    <div class="categories__items js-container">
-        <% for item in @categories.items : %>
-            <div class="categories__item">
-                <a class="categories__item-card card" href="<%- item.url %>">
-                    <span class="categories__item-icon">
-                        <% @icon = {name: item.icon } %>
-                        <% include @categoriesDeps.views.icon %>
-                    </span>
-                    <span class="categories__item-name"><%- item.name %></span>
-                </a>
-            </div>
-        <% end %>
-    </div>
+    <% for item in @categories.items : %>
+        <div class="categories__item">
+            <a class="card" href="<%- item.url %>">
+                <span class="categories__item-icon">
+                    <% @icon = {name: item.icon } %>
+                    <% include @categoriesDeps.views.icon %>
+                </span>
+                <span class="categories__item-name"><%- item.name %></span>
+            </a>
+        </div>
+    <% end %>
 </div>
 
 

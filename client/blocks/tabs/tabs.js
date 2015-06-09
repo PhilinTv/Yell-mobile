@@ -1,29 +1,37 @@
-app.controller('Tabs', function ($scope, $rootScope, $element, $http, $templateRequest, $compile) {
+app.controller('Tabs', function ($scope, $rootScope, $element, $http, $compile) {
     var config = $($element).data('config'),
-        $container = $($element).find('.js-container');
+        $container = $($element).find('.tabs__content'),
+        template = $('#' + config.tpl).html();
     
-    $scope.switchTab = function ($event) {
+    $scope.tabs = $($element).data('tabs');
+    
+    $scope.onTabClick = function (tab, $event) {
         $scope.lineOffset = $($event.target).index() * $($event.target).width();
+        
+        if (config.url) {
+            $scope.ajaxLoad(tab);
+        }
     }
     
-    $scope.ajaxLoad = function () {
+    $scope.ajaxLoad = function (tab) {
         $scope.isLoading = true;
         
-        $http.get(config.url).success(function(data, status) {
-            if (!data) {
-                $scope.isNoData = true;
-            }
-            
-            $scope.data = data;
-
-            $templateRequest(config.tpl).then(function(template) {
+        $http({
+            url: config.url,
+            params: tab.params
+        }).success(function(data, status) {
+            if (data) {
+                $scope.data = data;
                 $scope.isLoading = false;
                 $container.html($compile(template)($scope));
-            });
+            }
+            else {
+                $scope.isNoData = true;
+            }
         });
     }
 
     if (config.url) {
-        $scope.ajaxLoad();
+        $scope.ajaxLoad($scope.tabs[0]);
     }
 });

@@ -23,35 +23,51 @@
     &:disabled
         cursor default
         opacity .4
+        
+        
+    &_fab
+        border-radius 50%
             
 
     &_size
         &_m
             height 40px
-            padding 9px 20px 13px
+            padding 12px 20px
             font-size 16px
 
             .button__icon
                 width 20px
                 height 20px
                 
+            &.button_fab
+                width 40px
+                padding 10px
+                
         &_l
             height 44px
-            padding 11px 20px 15px
+            padding 14px 20px
             font-size 16px
 
             .button__icon
                 width 20px
                 height 20px
+                
+            &.button_fab
+                width 44px
+                padding 12px
             
         &_xl
             height 50px
-            padding 14px 20px 18px
+            padding 17px 20px
             font-size 16px
 
             .button__icon
                 width 20px
                 height 20px
+                
+            &.button_fab
+                width 50px
+                padding 14px
 
 
     &_width_full
@@ -59,7 +75,8 @@
         
 
     &_shadow_yes
-        mixin-material-shadow(2)
+        mixin-material-shadow(1)
+        
 
 
     &_theme
@@ -72,11 +89,14 @@
         &_blue
             mixin-button-theme($blue_500)
             
+        &_pink
+            mixin-button-theme($pink_500)
+            
         &_grey
             mixin-button-theme($grey_700)
 
 
-    &__text
+    &__label
         display inline-block
         vertical-align middle
 

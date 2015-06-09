@@ -2,37 +2,24 @@
 
 <% @guides = @guides || {} %>
 <% @guides.items = @guides.items || [] %>
+<% @guides.mix = @guides.mix || [] %>
+<% @guides.mix.push('js-container') %>
 
 
-<div <%- @generateAttrs('guides', @guides) %>>
-    <div class="guides__items js-container">
-        <% for item in @guides.items : %>
-            <div class="guides__item">
-                <div class="guides__item-card card">
-                    <a class="guides__item-image" href="<%- item.url %>" style="background-image: url('<%- item.image %>')"></a>
-                    <div class="guides__item-body">
-                        <h3 class="heading heading_3 guides__item-title"><a href="<%- item.url %>"><%- item.title %></a></h3>
-                        <div class="guides__item-text"><%- item.text %></div>
-                        <small class="guides__item-date"><%- item.date %></small>
-                    </div>
-                </div>
-            </div>
-        <% end %>
-    </div>
+<div <%- @generateAttrs('guides', @guides) %>></div>
 
-    <script type="text/ng-template" id="guides-tpl">
-        <div class="guides__item" data-ng-repeat="item in data track by $index">
-            <div class="guides__item-card card">
-                <a class="guides__item-image" href="{{ item.url }}" style="background-image: url('{{ item.image }}')"></a>
-                <div class="guides__item-body">
-                    <h3 class="heading heading_3 guides__item-title"><a href="{{ item.url }}">{{ item.title }}</a></h3>
-                    <div class="guides__item-text">{{ item.text }}</div>
-                    <small class="guides__item-date">{{ item.date }}</small>
-                </div>
+<script type="text/ng-template" id="guides-tpl">
+    <div class="guides__item" ng-repeat="item in data track by $index">
+        <div class="card guides__card">
+            <a class="card__image" href="{{ item.url }}" style="background-image: url('{{ item.image }}')"></a>
+            <div class="card__content">
+                <h3 class="card__title"><a href="{{ item.url }}">{{ item.title }}</a></h3>
+                <p class="card__text">{{ item.text }}</p>
+                <small class="card__caption">{{ item.date }}</small>
             </div>
         </div>
-    </script>
-</div>
+    </div>
+</script>
 
 
 <% @guides = false %>

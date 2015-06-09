@@ -1,7 +1,7 @@
 .fab
-    position absolute
-    width 56px
-    height 56px
+    position relative
+    width 50px
+    height 50px
     
     &:before
         content ''
@@ -12,67 +12,44 @@
         transition opacity .3s
     
     
-    &__item
+    .button
         absolute left top
-        width 100%
-        height 100%
-        color $white
-        text-decoration none
-        text-align center
-        cursor pointer
-        opacity 0
-        border-radius 50%
-        box-sizing border-box
-        transition .2s
+        
+        for $i in 1..5
+            &:nth-child({$i})
+                z-index (6 - $i)
         
         &.is-visible
             opacity 1
-            box-shadow 0 0 4px rgba($black, .14), 0 4px 8px rgba($black, .28)
-        
-
-        &_theme
-            &_red
-                padding 20px
-                background-color $red_400
-                
-                .icon
-                    transition transform .2s
-                
-                &.is-close .icon
-                    transform-origin 50% 50%
-                    transform rotate3d(0, 0, 1, 135deg)
+            mixin-material-shadow(2)
             
-            &_pink,
-            &_green,
-            &_blue
-                padding 16px
-                
-            &_pink
-                background-color $pink_500
-                
-            &_green
-                background-color $green_500
-                
-            &_blue
-                background-color $blue_500
+        &_icon_plus
+             padding 17px
+             
+             &.is-close .icon
+                transform-origin 50% 50%
+                transform rotate3d(0, 0, 1, 135deg)
                 
             
-        &-caption
+        &__label
             absolute top 50% right 100%
-            height 16px
-            margin -15px 15px 0 0
-            padding 7px 15px
+            height 14px
+            margin -13px 16px 0 0
+            padding 6px 15px
+            font-size .8em
             line-height 1.2
             color $grey_700
+            text-transform none
             white-space nowrap
             opacity 0
             background-color $white
             border-radius 15px
-            box-shadow 0 0 4px rgba($black, .14), 0 4px 8px rgba($black, .28)
+            mixin-material-shadow(2)
             
         
         .icon
             fill currentColor
+            transition .3s
             
             
     &.is-opened:before
@@ -80,17 +57,12 @@
         visibility visible
 
 
-    &.is-opened &__item_theme
-        &_pink
-            top 75px
-        
-        &_green
-            top 150px
-        
-        &_blue
-            top 225px
+    &.is-opened
+        for $i in 1..5
+            .button:nth-child({$i})
+                top (($i - 1) * 66)px
 
         
-    &.is-opened &__item-caption
+    &.is-opened .button__label
         opacity 1
         transition opacity .3s .3s

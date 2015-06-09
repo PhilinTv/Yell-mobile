@@ -8,12 +8,12 @@
 <div <%- @generateAttrs('index', @index) %>>
     <div class="index__section index__section_main" style="min-height: {{ sectionMainHeight }}px;">
         <div class="index__search">
-            <h2 class="heading heading_2">Поиск среди<br>1 450 057 отзывов</h2>
+            <h2>Поиск среди<br>1 450 057 отзывов</h2>
             <% include @indexDeps.views.search %>
         </div>
     </div>
     
-    <div class="index__section index__section_categories">
+    <div class="index__section index__section_scroller">
         <% @categories = {items: @Data.categories} %>
         <% @content = include @indexDeps.views.categories %>
         
@@ -27,8 +27,8 @@
         <% include @indexDeps.views.scroller %>
     </div>
     
-    <div class="index__section index__section_guides">
-        <h2 class="heading heading_2">Интересные путеводители</h2>
+    <div class="index__section index__section_scroller">
+        <h2>Интересные путеводители</h2>
         <% @content = include @indexDeps.views.guides %>
         
         <% @scroller = {
@@ -47,36 +47,14 @@
         <img src="/pages/index/img/download-app.bg.png">
         <h3 class="heading heading_3 index__download-app-title">Скачайте наше<br>мобильное приложение</h3>
     </a>
-
-    <div class="index__section index__section_events">
+    
+    <div class="index__section index__section_padding">
         <h2 class="heading heading_2">События компаний</h2>
-        <% @content = include @indexDeps.views.events %>
-        
-        <% @tabs = {
-            items: [{
-                tab: 'all',
-                caption: 'Все'
-            }, {
-                tab: 'current',
-                caption: 'Текущие'
-            }, {
-                tab: 'future',
-                caption: 'Будущие'
-            }],
-            content: @content,
-            options: {
-                url: '/data/events.json',
-                tpl: 'events-tpl',
-                more: true
-            },
-            mix: ['card']
-        } %>
-        
-        <% include @indexDeps.views.tabs %>
+        <% include @indexDeps.views.events %>
     </div>
     
-    <div class="index__section index__section_videos">
-        <h2 class="heading heading_2">Видео компаний</h2>
+    <div class="index__section index__section_scroller">
+        <h2>Видео компаний</h2>
         <% @content = include @indexDeps.views.videos %>
         
         <% @scroller = {
@@ -91,8 +69,8 @@
         <% include @indexDeps.views.scroller %>
     </div>
     
-    <div class="index__section index__section_affiche">
-        <h2 class="heading heading_2">Афиша</h2>
+    <div class="index__section index__section_scroller">
+        <h2>Афиша</h2>
         <% @content = include @indexDeps.views.affiche %>
         
         <% @scroller = {
@@ -107,8 +85,8 @@
         <% include @indexDeps.views.scroller %>
     </div>
 
-    <div class="index__section index__section_reviews">
-        <h2 class="heading heading_2">Отзывы</h2>
+    <div class="index__section index__section_padding">
+        <h2>Отзывы</h2>
         <% @reviews = {items: @data.reviews} %>
         <% include @indexDeps.views.reviews %>
     </div>

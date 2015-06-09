@@ -2,68 +2,50 @@
 
 <% @header = @header || {} %>
 <% @header.attrs = @header.attrs || {} %>
-<% @header.attrs['data-ng-controller'] = 'Header' %>
+<% @header.attrs['ng-controller'] = 'Header' %>
 
 
 <div <%- @generateAttrs('header', @header) %>>
-    <div class="header__menu" data-ng-class="isMenuOpened ? 'is-visible' : ''">
-        <div class="header__menu-user">
-            <a class="header__menu-user-item">
-                <span class="header__menu-user-icon">
-                    <% @icon = {name: 'profile'} %>
-                    <% include @headerDeps.views.icon %>
-                </span>
-                <div class="header__menu-user-caption">
-                    <h3 class="heading heading_3">Профиль</h3>
-                </div>
-            </a>
-            <a class="header__menu-user-item">
-                <span class="header__menu-user-icon">
-                    <% @icon = {name: 'region'} %>
-                    <% include @headerDeps.views.icon %>
-                </span>
-                <div class="header__menu-user-caption">
-                    <h3 class="heading heading_3">Регион</h3>
-                    <small>Петропавловск-Камчатский</small>
-                </div>
-            </a>
-        </div>
-        <div class="header__menu-categories">
-            <% @categories = {items: @Data.categories} %>
-            <% include @headerDeps.views.categories %>
-        </div>
-        
-        <div class="header__menu-more">
-            <% @button = {
-                text: 'Смотреть ещё',
-                attrs: {
-                    type: 'button'
-                },
-                mods: {
-                    size: 'm',
-                    theme: 'red'
-                }
-            } %>
-            <% include @headerDeps.views.button %>
-        </div>
-    </div>
+    <% @sidebar = {
+        attrs: {
+             'ng-class': "{'is-visible': isSidebarOpened}"
+        }
+        mix: ['header__sidebar']
+    } %>
+    <% include @headerDeps.views.sidebar %>
     
     <div class="header__panel">
-        <% @logo = {
-            attrs: {
-                href: '/'
-            },
-            mix: ['header__logo']
-        } %>
+        <% @logo = {attrs: {
+            href: '/'
+        }} %>
         <% include @headerDeps.views.logo %>
 
-        <div class="header__menu-switcher no-tap-highlight-color" data-ng-click="toggleMenu()">
-            <span class="header__icon-burger" data-ng-class="isMenuOpened ? 'is-close' : ''"></span>
+        <div class="header__menu-switcher no-tap-highlight-color" ng-click="toggleSidebar()">
+            <span class="header__icon-burger" ng-class="{'is-close': isSidebarOpened}"></span>
         </div>
     </div>
     
     <% @fab = {
-        mix: ['header__fab']
+        items: [{
+            theme: 'red',
+            icon: 'plus',
+            isMain: true
+        }, {
+            theme: 'pink',
+            icon: 'review',
+            label: 'Оставить отзыв',
+            action: 'review'
+        }, {
+            theme: 'green',
+            icon: 'photo',
+            label: 'Добавить фотографию',
+            action: 'photo'
+        }, {
+            theme: 'blue',
+            icon: 'star',
+            label: 'Добавить в избранное',
+            action: 'favorite'
+        }]
     } %>
     <% include @headerDeps.views.fab %>
 </div>

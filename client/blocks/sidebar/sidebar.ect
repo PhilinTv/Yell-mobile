@@ -1,0 +1,35 @@
+<% @sidebarDeps = @Helpers.getDeps('sidebar') %>
+
+
+<div <%- @generateAttrs('sidebar', @sidebar) %>>
+    <div class="sidebar__user">
+        <a href="#" class="sidebar__user-item">
+            <span class="sidebar__user-icon">
+                <% @icon = {name: 'profile'} %>
+                <% include @sidebarDeps.views.icon %>
+            </span>
+            <div class="sidebar__user-content">
+                <h3>Профиль</h3>
+            </div>
+        </a>
+        <a href="#" class="sidebar__user-item">
+            <span class="sidebar__user-icon">
+                <% @icon = {name: 'region'} %>
+                <% include @sidebarDeps.views.icon %>
+            </span>
+            <div class="sidebar__user-content">
+                <h3>Регион</h3>
+                <small>Петропавловск-Камчатский</small>
+            </div>
+        </a>
+    </div>
+    
+    <div class="sidebar__categories">
+        <% @categories = {items: @Data.categories} %>
+        <% include @sidebarDeps.views.categories %>
+    </div>
+
+    <div class="sidebar__categories-more">
+        <a class="button button_size_m button_theme_red" href="/">Смотреть ещё</a>
+    </div>
+</div>

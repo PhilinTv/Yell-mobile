@@ -1,10 +1,12 @@
-<% @commonDeps = @Helpers.getDeps(['common', @view]) %>
+<% @vendorDeps = @Helpers.getDeps('vendor') %>
+<% @commonDeps = @Helpers.getDeps('common') %>
+<% @viewDeps = @Helpers.getDeps(@view, ['vendor', 'common']) %>
 
 <!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="<%- @Lang %>" data-ng-app="app"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang="<%- @Lang %>" data-ng-app="app"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang="<%- @Lang %>" data-ng-app="app"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="<%- @Lang %>" data-ng-app="app"> <!--<![endif]-->
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="<%- @Lang %>" ng-app="app"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang="<%- @Lang %>" ng-app="app"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="<%- @Lang %>" ng-app="app"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="<%- @Lang %>" ng-app="app"> <!--<![endif]-->
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -15,28 +17,50 @@
         
         <link href="//fonts.googleapis.com/css?family=Roboto:500,400italic,700italic,700,500italic,400&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
         
-        <% for k, v of @commonDeps.styles : %>
-            <link rel="stylesheet" href="<%- v %>">
+        <% for k, i of @vendorDeps.styles : %>
+            <% for j in i : %>
+                <link rel="stylesheet" href="<%- j %>">
+            <% end %>
+        <% end %>
+        
+        <% for k, i of @commonDeps.styles : %>
+            <% for j in i : %>
+                <link rel="stylesheet" href="<%- j %>">
+            <% end %>
+        <% end %>
+        
+        <% for k, i of @viewDeps.styles : %>
+            <% for j in i : %>
+                <link rel="stylesheet" href="<%- j %>">
+            <% end %>
         <% end %>
     </head>
-    <body <%- @generateAttrs('common', @common) %> data-ng-class="isBodyOverflowHidden ? 'is-overflow-hidden' : ''">
+    <body <%- @generateAttrs('common', @common) %> ng-class="{'is-overflow-hidden': isBodyOverflowHidden}">
         <% include @commonDeps.views.svg %>
         <% include @commonDeps.views.header %>
         
-        <% include @commonDeps.views[@view] %>
+        <% include @viewDeps.views[@view] %>
 
         <% include @commonDeps.views.share %>
 
         <% include @commonDeps.views.footer %>
         
-        <div class="common__spinner" data-ng-class="commonSpinner ? 'is-visible' : ''"></div>
-        
-        <% for k, v of @Helpers.getDeps('base').scripts : %>
-            <script src="<%- v %>"></script>
+        <% for k, i of @vendorDeps.scripts : %>
+            <% for j in i : %>
+                <script src="<%- j %>"></script>
+            <% end %>
         <% end %>
         
-        <% for k, v of @commonDeps.scripts : %>
-            <script src="<%- v %>"></script>
+        <% for k, i of @commonDeps.scripts : %>
+            <% for j in i : %>
+                <script src="<%- j %>"></script>
+            <% end %>
+        <% end %>
+        
+        <% for k, i of @viewDeps.scripts : %>
+            <% for j in i : %>
+                <script src="<%- j %>"></script>
+            <% end %>
         <% end %>
     </body>
 </html>

@@ -1,5 +1,5 @@
 var builder = require(process.cwd() + '/builder');
 
-module.exports = function (arg) {    
-    return builder.getDeps(arg);
+module.exports = function (include, exclude) {    
+    return builder.getDeps(include, exclude);
 };

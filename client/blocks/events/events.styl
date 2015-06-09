@@ -1,13 +1,6 @@
 .events     
     
     &__item
-        padding 15px
-        border-top 1px solid $grey_300
-        clearfix()
-        
-        &:first-child
-            border none
-        
         &-image
             float right
             display block
@@ -18,7 +11,7 @@
             background-size cover
             
         &-title
-            margin-bottom 15px
+            margin-bottom 16px
             height 40px
             overflow hidden
             position relative
@@ -26,7 +19,7 @@
             &:after
                 content ''
                 absolute left right bottom
-                height 15px
+                height 16px
                 background linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%)
             
             a
@@ -35,3 +28,12 @@
             
         &-date
             color $grey_500
+            
+            
+    &__more
+        padding 16px 0
+        text-align center
+        border-top 1px solid $grey_300
+        
+        .button
+            border-radius 20px

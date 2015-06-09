@@ -4,7 +4,7 @@
     z-index 3
     
     &.is-fixed &__panel,
-    &.is-fixed &__fab
+    &.is-fixed .fab
         position fixed
     
     
@@ -14,11 +14,6 @@
         padding 10px 0
         background-color $red_400
         mixin-material-shadow(2)
-            
-            
-    &__logo
-        display block
-        margin 0 auto
             
             
     &__menu-switcher
@@ -68,85 +63,23 @@
                 transform rotate3d(0, 0, 1, 45deg)
                 
                 
-    &__menu
+    &__sidebar
         fixed left -100% top bottom
         width 100%
+        height 100%
         padding-top 60px
         overflow auto
-        background-color $white
+        box-sizing border-box
         transition .3s
         
         &.is-visible
             left 0
-        
-        &-user
-            padding 10px 0
-            border-bottom 1px solid $grey_300
-            
-            &-item
-                display table
-                padding 10px 30px
-                width 100%
-                color inherit
-                text-decoration none
-                box-sizing border-box
-                
-            &-icon
-                display table-cell
-                vertical-align middle
-                width 24px
-
-                .icon
-                    width 24px
-                    height 24px
-                    fill $red_400
-
-            &-caption
-                display table-cell
-                vertical-align middle
-                padding-left 20px
-                
-                .heading
-                    margin 0
-
-            small
-                color $grey_500
-                
-        &-categories
-            clearfix()
-            
-            .categories
-                &__items
-                    display block
-
-                &__item
-                    float left
-                    padding 0
-                    width 50%
-
-                    @media (min-width: 300px)
-                        width 33.3%
-
-                    @media (min-width: 500px)
-                        width 25%
-
-                    @media (min-width: 700px)
-                        width 20%
-
-                    @media (min-width: 900px)
-                        width 16.6%
-
-                    &-card
-                        width auto
-                        box-shadow none
-                    
-        &-more
-            padding 15px 0
-            text-align center
-            
-            .button
-                border-radius 20px
+    
+    
+    .logo
+        display block
+        margin 0 auto
                     
 
-    &__fab
+    .fab
         absolute top 32px right 15px

@@ -2,38 +2,24 @@
 
 <% @affiche = @affiche || {} %>
 <% @affiche.items = @affiche.items || [] %>
+<% @affiche.mix = @affiche.mix || [] %>
+<% @affiche.mix.push('js-container') %>
 
 
-<div <%- @generateAttrs('affiche', @affiche) %>>
-    <div class="affiche__items js-container">
-        <% for item in @affiche.items : %>
-            <div class="affiche__item">
-                <div class="affiche__item-card card">
-                    <a class="affiche__item-image" href="<%- item.url %>" style="background-image: url('<%- item.image %>')"></a>
-                    <div class="affiche__item-body">
-                        <div class="affiche__item-title"><a href="<%- item.url %>"><%- item.title %></a></div>
-                        <a class="affiche__item-category" href="<%- item.category.url %>">
-                            <small><%- item.category.name %></small>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        <% end %>
-    </div>
-    
-    <script type="text/ng-template" id="affiche-tpl">
-        <div class="affiche__item" data-ng-repeat="item in data track by $index">
-            <div class="affiche__item-card card">
-                <a class="affiche__item-image" href="{{ item.url }}" style="background-image: url('{{ item.image }}')"></a>
-                <div class="affiche__item-body">
-                    <div class="affiche__item-title"><a href="{{ item.url }}">{{ item.title }}</a></div>
-                    <a class="affiche__item-category" href="{{ item.category.url }}">
-                        <small>{{ item.category.name }}</small>
-                    </a>
-                </div>
+<div <%- @generateAttrs('affiche', @affiche) %>></div>
+
+<script type="text/ng-template" id="affiche-tpl">
+    <div class="affiche__item" ng-repeat="item in data track by $index">
+        <div class="card affiche__card">
+            <a class="card__image" href="{{ item.url }}" style="background-image: url('{{ item.image }}')"></a>
+            <div class="card__content">
+                <h4 class="card__title"><a href="{{ item.url }}">{{ item.title }}</a></h4>
+                <a class="card__caption" href="{{ item.category.url }}">
+                    <small>{{ item.category.name }}</small>
+                </a>
             </div>
         </div>
-    </script>
-</div>
+    </div>
+</script>
 
 <% @affiche = false %>

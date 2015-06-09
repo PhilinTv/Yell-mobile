@@ -4,7 +4,7 @@
 <% @scroller.options = @scroller.options || {} %>
 <% @scroller.attrs = @scroller.attrs || {} %>
 <% @scroller.attrs['data-config'] = @scroller.options || {} %>
-<% @scroller.attrs['data-ng-controller'] = 'Scroller' %>
+<% @scroller.attrs['ng-controller'] = 'Scroller' %>
 
 
 <div <%- @generateAttrs('scroller', @scroller) %>>
@@ -13,7 +13,7 @@
             <%- @scroller.content %>
         </div>
         <% if @scroller.options.url : %>
-            <div class="scroller__spinner" data-ng-class="isNoData ? 'is-hidden' : ''">
+            <div class="scroller__spinner" ng-if="!isNoData">
                 <% include @scrollerDeps.views.spinner %>
             </div>
         <% end %>

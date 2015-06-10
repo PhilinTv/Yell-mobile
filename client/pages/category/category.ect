@@ -1,0 +1,82 @@
+<% @categoryDeps = @Helpers.getDeps('category') %>
+
+<% @category = @category || {} %>
+<% @category.attrs = @category.attrs || {} %>
+
+
+<div <%- @generateAttrs('category', @category) %>>
+    <div class="category__section_map category__section_map_main is-overflow-hidden">
+        <% include @categoryDeps.views.yandexMap %>
+        <div class="category__section-overlay">
+            <span class="button button_size_m button_rounded button_theme_white-linear category__map-button">Открыть карту</span>
+        </div>
+    </div>
+    
+    <div class="category__section category__section_scroller">
+        <h2 class="padding_0x16">Лучшее</h2>
+        <% @companies = {items: @data.category} %>
+        <% @content = include @categoryDeps.views.companies %>
+        
+        <% @scroller = {
+            content: @content,
+            options: {
+                axis: 'x'
+            }
+        } %>
+        
+        <% include @categoryDeps.views.scroller %>
+    </div>
+    
+    <div class="category__section">
+        <h3 class="is-align-center is-uppercase">Фильтры</h3>
+        <hr class="hr">
+        <div class="is-align-center">
+            <small class="category__result-count">Найдено 3 432 мест</small>
+        </div>
+    </div>
+    
+    <div class="category__section padding_0x16">
+        <div class="whiteframe whiteframe_z1">
+            <% @companies = {items: @data.category} %>
+            <% include @categoryDeps.views.companies %>
+        </div>
+    </div>
+    
+    <div class="category__section category__section_map">
+        <% include @categoryDeps.views.yandexMap %>
+        <div class="category__section-overlay">
+            <h2>Посмотреть то что вы нашли на карте</h2>
+        </div>
+    </div>
+    
+    <div class="category__section category__section_scroller">
+        <h2 class="padding_0x16">Больше всего ищут</h2>
+        <% @categories = {items: @Data.categories} %>
+        <% @content = include @categoryDeps.views.categories %>
+        
+        <% @scroller = {
+            content: @content,
+            options: {
+                axis: 'x'
+            }
+        } %>
+        
+        <% include @categoryDeps.views.scroller %>
+    </div>
+    
+    <div class="category__section padding_0x16">
+        <div class="whiteframe whiteframe_z1">
+            <% @companies = {items: @data.category} %>
+            <% include @categoryDeps.views.companies %>
+        </div>
+    </div>
+    
+    <div class="category__section padding_0x16">
+        <div class="category__guides">
+            <div class="category__guides-panel">
+                <h2>Ничего не нашли ?<br>Посмотрите, что мы вам подобрали в путеводителях</h2>
+                <a class="button button_size_xl button_width_full button_theme_red button_shadow_yes" href="/">Посмотреть</a>
+            </div>
+        </div>
+    </div>
+</div>

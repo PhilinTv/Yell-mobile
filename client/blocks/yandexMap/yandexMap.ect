@@ -1,0 +1,6 @@
+<% @yandexMapDeps = @Helpers.getDeps('yandex-map') %>
+
+<% @yandexMap = @yandexMap || {} %>
+<% @yandexMap.attrs = @yandexMap.attrs || {} %>
+    
+<div <%- @generateAttrs('yandex-map', @yandexMap) %> ng-controller="YandexMap"></div>

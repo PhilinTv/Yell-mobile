@@ -123,6 +123,13 @@ app.get('/', function (req, res, next) {
 });
 
 
+app.get('/category', function (req, res, next) {
+	res.render('category', {
+        category: require('./data/category')
+    });
+});
+
+
 // Socet.IO
 io.on('connection', function (socket) {
 	console.log('a user connected');

@@ -1,0 +1,66 @@
+.category
+    &__section
+        margin 16px 0
+        
+        &_scroller
+                
+            .scroller__container
+                padding 0 13px
+                
+            .categories__item
+                display table-cell
+                float none
+                
+            .companies__item
+                display table-cell
+                border none
+                
+                &-card
+                    width 290px
+                    margin 3px
+                    background-color $white
+                    box-sizing border-box
+                    mixin-material-shadow(1)
+                
+                
+                
+        &_map
+            position relative
+            
+            &_main
+                height 70px
+            
+            .category__section-overlay
+                absolute left top right bottom
+                padding 16px
+                color $white
+                background-color rgba($black, .5)
+            
+            .yandex-map
+                height 140px
+                
+                
+    &__map-button
+        absolute left 50% top 50%
+        width 200px
+        transform translate(-50%, -50%)
+                
+                
+    &__result-count
+        color $grey_700
+        
+        
+    &__guides
+        display table
+        
+        &-panel
+            display table-cell
+            vertical-align middle
+            width 245px
+            height 375px
+            padding 0 25px
+            color $white
+            background-image url($dir-path + '/img/category__guides-panel.bg.png')
+            
+            h2
+                margin-bottom 30px

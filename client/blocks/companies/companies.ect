@@ -1,0 +1,21 @@
+<% @companiesDeps = @Helpers.getDeps('companies') %>
+
+<% @companies = @companies || {} %>
+<% @companies.attrs = @companies.attrs || {} %>
+
+<div class="companies">
+    <% for item in @companies.items : %>
+        <div class="companies__item">
+            <div class="companies__item-card">
+                <a class="companies__item-image" href="<%- item.url %>" style="background-image: url('<%- item.image %>')"></a>
+                <div class="companies__item-content">
+                    <% @stars = {rating: item.rating} %>
+                    <% include @categoryDeps.views.stars %>
+                    <h3 class="companies__item-title"><a href="<%- item.url %>"><%- item.title %></a></h3>
+                    <a href="<%- item.category.url %>"><%- item.category.name %></a>
+                    <small class="companies__item-caption"><%- item.location %></small>
+                </div>
+            </div>
+        </div>
+    <% end %>
+</div>

@@ -14,12 +14,14 @@
     
     .button
         absolute left top
+        visibility hidden
         
         for $i in 1..5
             &:nth-child({$i})
                 z-index (6 - $i)
         
         &.is-visible
+            visibility visible
             opacity 1
             mixin-material-shadow(2)
             

@@ -19,10 +19,13 @@ module.exports = {
     iscroll: {
         scripts: ['//cdnjs.cloudflare.com/ajax/libs/iScroll/5.1.1/iscroll-min.js']
     },
+    'yandex.maps.api': {
+        scripts: ['//api-maps.yandex.ru/2.1/?lang=ru_RU']
+    },
     
     // Layouts
     vendor: {
-        deps: ['modernizr', 'angularjs', 'jquery', 'requirejs', 'iscroll']
+        deps: ['modernizr', 'angularjs', 'jquery', 'requirejs', 'iscroll', 'yandex.maps.api']
     },
     
     common: {
@@ -38,6 +41,12 @@ module.exports = {
         scripts: ['index.js'],
         view: 'index.ect',
         deps: ['scroller', 'tabs', 'search', 'categories', 'guides', 'events', 'videos', 'affiche', 'reviews']
+    },
+    category: {
+        styles: ['category.styl'],
+        scripts: ['category.js'],
+        view: 'category.ect',
+        deps: ['scroller', 'companies', 'categories', 'yandexMap']
     },
     
     // Blocks
@@ -168,5 +177,14 @@ module.exports = {
     share: {
         styles: ['share.styl'],
         view: 'share.ect'
+    },
+    companies: {
+        styles: ['companies.styl'],
+        view: 'companies.ect',
+        deps: ['stars']
+    },
+    yandexMap: {
+        scripts: ['yandexMap.js'],
+        view: 'yandexMap.ect'
     }
 }

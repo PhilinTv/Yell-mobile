@@ -1,11 +1,8 @@
 var gulp = require('gulp'),
-    stylus = require('gulp-stylus'),
     csso = require('gulp-csso'),
     uglify = require('gulp-uglify'),
-    concat = require('gulp-concat')
     fs = require('fs'),
     writefile = require('writefile'),
-    mkdirp = require('mkdirp'),
     builder = require('./builder'),
     buildFolder = 'build/';
 

@@ -8,6 +8,8 @@
     text-align center
     white-space nowrap
     cursor pointer
+    border-width 1px
+    border-style solid
     border-radius 2px
     box-sizing border-box
     transition .1s
@@ -32,6 +34,7 @@
     &_size
         &_m
             height 40px
+            min-width 40px
             padding 12px 20px
             font-size 16px
 
@@ -39,12 +42,15 @@
                 width 20px
                 height 20px
                 
+            &.button_rounded
+                border-radius 20px
+                
             &.button_fab
-                width 40px
                 padding 10px
                 
         &_l
             height 44px
+            min-width 44px
             padding 14px 20px
             font-size 16px
 
@@ -52,12 +58,15 @@
                 width 20px
                 height 20px
                 
+            &.button_rounded
+                border-radius 22px
+                
             &.button_fab
-                width 44px
                 padding 12px
             
         &_xl
             height 50px
+            min-width 50px
             padding 17px 20px
             font-size 16px
 
@@ -65,9 +74,27 @@
                 width 20px
                 height 20px
                 
+            &.button_rounded
+                border-radius 25px
+                
             &.button_fab
-                width 50px
                 padding 14px
+                
+        &_xxl
+            height 60px
+            min-width 60px
+            padding 20px 30px
+            font-size 20px
+
+            .button__icon
+                width 24px
+                height 24px
+                
+            &.button_rounded
+                border-radius 30px
+                
+            &.button_fab
+                padding 18px
 
 
     &_width_full
@@ -94,6 +121,9 @@
             
         &_grey
             mixin-button-theme($grey_700)
+            
+        &_white-linear
+            mixin-button-theme($white, false)
 
 
     &__label

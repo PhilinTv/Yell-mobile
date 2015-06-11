@@ -4,7 +4,6 @@
     font-weight 500
     line-height 1
     text-decoration none
-    text-transform uppercase
     text-align center
     white-space nowrap
     cursor pointer
@@ -69,6 +68,7 @@
             min-width 50px
             padding 17px 20px
             font-size 16px
+            text-transform uppercase
 
             .button__icon
                 width 20px
@@ -121,6 +121,9 @@
             
         &_grey
             mixin-button-theme($grey_700)
+            
+        &_white
+            mixin-button-theme($white)
             
         &_white-linear
             mixin-button-theme($white, false)

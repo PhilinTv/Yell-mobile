@@ -1,20 +1,25 @@
 app.controller('Scroller', function ($scope, $rootScope, $element, $http, $compile) {
-    var axis = {
-            x: {
-                scrollX: true,
-                scrollY: false,
-                eventPassthrough: true
-            }
-        },
-        config = $($element).data('config'),
-        scroller = new IScroll($element[0], axis[config.axis]),
-        $container = $($element).find('.js-container'),
-        template = $('#' + config.tpl).html();
+    var axis, scroller, $container, template;
+    
+    axis = {
+        x: {
+            scrollX: true,
+            scrollY: false,
+            eventPassthrough: true
+        }
+    };
+    
+    $scope.config = $($element).data('config') || {};
+    scroller = new IScroll($element[0], axis[$scope.config.axis || 'x']);
+    $container = $($element).find('.js-container');
+    template = $('#' + $scope.config.tpl).html();
+    
+    $($element).addClass('js-inited');
     
     $scope.ajaxLoad = function () {
         $scope.isLoading = true;
         
-        $http.get(config.url).success(function(data, status) {
+        $http.get($scope.config.url).success(function(data, status) {
             if (data) {
                 $scope.data = data;
                 $scope.isLoading = false;
@@ -30,7 +35,7 @@ app.controller('Scroller', function ($scope, $rootScope, $element, $http, $compi
         });
     }
 
-    if (config.url) {
+    if ($scope.config.url) {
         $scope.ajaxLoad();
         
         scroller.on('scrollEnd', function () {

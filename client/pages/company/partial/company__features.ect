@@ -1,0 +1,13 @@
+<div class="company__features">
+    <% for item in @data.company.features : %>
+        <div class="company__features-item">
+            <div class="company__features-item-block">
+                <span class="company__features-item-icon">
+                    <% @icon = {name: item.icon } %>
+                    <% include @companyDeps.views.icon %>
+                </span>
+                <span class="company__features-item-name"><%- item.name %></span>
+            </div>
+        </div>
+    <% end %>
+</div>

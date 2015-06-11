@@ -1,0 +1,160 @@
+<% @companyDeps = @Helpers.getDeps('company') %>
+
+
+<div class="company" ng-controller="Company">
+    <div class="whiteframe whiteframe_z1">
+        <div class="company__header">
+            <div class="company__rating">
+                <% @stars = {rating: '4.4'} %>
+                <% include @companyDeps.views.stars %>
+                <small>425 отзывов</small>
+            </div>
+            <h3 class="company__name">Nièvre</h3>
+            <div class="company__category"><a href="/">Европейская кухня</a></div>
+        </div>
+        
+        <% @content = include 'pages/company/partial/company__media.ect' %>
+        <% @scroller = {
+            content: @content
+        } %>
+        
+        <% include @companyDeps.views.scroller %>
+        
+        <div class="padding_0x16">
+            <h2>О заведении</h2>
+            <div class="company__descr" ng-class="{'is-visible': descrFull}">
+                <div class="company__descr-viewport">По требованию собственника закон гарантирует взаимозачет. Еще до момента заключения договора вексель виновно использует регрессный платежный документ. По требованию собственника закон гарантирует взаимозачет. Еще до момента заключения договора вексель виновно использует регрессный платежный документ.</div>
+            </div>
+        </div>
+        <div class="company__descr-more is-uppercase" ng-if="descrHidden" ng-click="showFullDescr()">
+            <% @icon = {name: 'down' } %>
+            <% include @companyDeps.views.icon %>
+            Развернуть описание
+        </div>
+        
+        <div class="padding_16">
+            <a class="button button_size_xl button_width_full button_theme_red button_shadow_yes is-uppercase" href="#">Забронировать</a>
+            <div class="company__contacts">
+                <div class="company__contacts-row">
+                    <div class="company__contacts-icon">
+                        <% @icon = {name: 'clock' } %>
+                        <% include @companyDeps.views.icon %>
+                    </div>
+                    <div class="company__contacts-text">10:00—23:43<br>будние дни</div>
+                </div>
+                <div class="company__contacts-row">
+                    <div class="company__contacts-icon">
+                        <% @icon = {name: 'at' } %>
+                        <% include @companyDeps.views.icon %>
+                    </div>
+                    <div class="company__contacts-text"><a href="#">Перейти на сайт</a></div>
+                </div>
+                <div class="company__contacts-row">
+                    <div class="company__contacts-icon">
+                        <% @icon = {name: 'phone' } %>
+                        <% include @companyDeps.views.icon %>
+                    </div>
+                    <div class="company__contacts-text">+7 985 234-22-21</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="company__section">
+        <h2 class="padding_0x16">Удобства</h2>
+        <% @content = include 'pages/company/partial/company__features.ect' %>
+        
+        <% @scroller = {
+            content: @content
+        } %>
+        
+        <% include @companyDeps.views.scroller %>
+    </div>
+    
+    <div class="company__section padding_0x16">
+        <h2>Мнения людей</h2>
+        <div class="company__opinions">
+            <% for item in @data.company.opinions : %>
+                <span class="company__opinions-item"><%- item %></span>
+            <% end %>
+        </div>
+    </div>
+    
+    <div class="company__section">
+        <h2 class="padding_0x16">Здесь были</h2>
+        <% @content = include 'pages/company/partial/company__clients.ect' %>
+        
+        <% @scroller = {
+            content: @content
+        } %>
+        
+        <% include @companyDeps.views.scroller %>
+    </div>
+    
+    <div class="company__section padding_0x16">
+        <h2>Отзывы</h2>
+        <div class="company__reviews">
+            <% for item in @data.company.reviews : %>
+                <div class="company__reviews-item">
+                    <a class="company__reviews-item-photo" href="<%- item.user.url %>">
+                        <img src="<%- item.user.photo %>">
+                    </a>
+                    <div class="company__reviews-item-data">
+                        <div class="company__reviews-item-rating">
+                            <% @stars = {rating: item.rating} %>
+                            <% include @companyDeps.views.stars %>
+                        </div>
+                        <div class="company__reviews-item-name">
+                            <a href="<%- item.user.url %>"><%- item.user.name %></a>
+                        </div>
+                        <small class="company__reviews-item-date"><%- item.date %></small>
+                    </div>
+                    <div class="company__reviews-item-content whiteframe whiteframe_z1 padding_16">
+                        <div><%- item.text %></div>
+                        <span class="company__reviews-item-likes">
+                            <% @icon = {name: 'like' } %>
+                            <% include @companyDeps.views.icon %>
+                            <small><%- item.likes %></small>
+                        </span>
+                    </div>
+                </div>
+             <% end %>
+        </div>
+        <div class="company__reviews-more">
+            <span class="button button_size_m button_rounded button_theme_red">Смотреть все</span>
+        </div>
+    </div>
+    
+    <div class="company__section padding_0x16">
+        <h2>Акции компании</h2>
+        <% include @companyDeps.views.events %>
+    </div>
+    
+    <div class="company__section">
+        <h2 class="padding_0x16">Афиша</h2>
+        <% @content = include @companyDeps.views.affiche %>
+        
+        <% @scroller = {
+            content: @content,
+            options: {
+                axis: 'x',
+                url: '/data/affiche.json',
+                tpl: 'affiche-tpl'
+            }
+        } %>
+        
+        <% include @companyDeps.views.scroller %>
+    </div>
+    
+    <div class="company__section company__section_scroller">
+        <h2 class="padding_0x16">Похожие объекты</h2>
+        <% @companies = {items: @data.category} %>
+        <% @content = include @companyDeps.views.companies %>
+        
+        <% @scroller = {
+            content: @content
+        } %>
+        
+        <% include @companyDeps.views.scroller %>
+    </div>
+</div>

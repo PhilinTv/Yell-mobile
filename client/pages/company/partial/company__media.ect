@@ -1,0 +1,11 @@
+<div class="company__media">
+    <% for item in @data.company.media : %>
+        <div class="company__media-item">
+            <% if item.type == 'image' : %>
+                <a class="company__media-item-image" href="">
+                    <img src="<%- item.url %>">
+                </a>
+            <% end %>
+        </div>
+    <% end %>
+</div>

@@ -1,0 +1,9 @@
+<div class="company__clients">
+    <% for item in @data.company.clients : %>
+        <div class="company__clients-item">
+            <a class="company__clients-item-photo" href="">
+                <img src="<%- item.photo %>">
+            </a>
+        </div>
+    <% end %>
+</div>

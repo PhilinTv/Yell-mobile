@@ -1,0 +1,212 @@
+.company
+    &__section
+        margin 32px 0
+        
+        
+    &__header
+        padding 16px
+        
+        
+    &__rating
+        margin-bottom 16px
+        color $grey_500
+        
+        
+    &__name
+        margin 3px 0
+        
+        
+    &__category
+        a
+            color inherit
+            text-decoration none
+            
+            
+    &__media
+        &-item
+            float left
+            
+            &-image
+                img
+                    vertical-align top
+                    width 100px
+                    height 100px
+        
+    &__descr
+        overflow hidden
+        max-height 96px
+        
+        &.is-visible
+            max-height none
+        
+        &-more
+            padding 16px 0
+            margin-top 16px
+            text-align center
+            cursor pointer
+            border-top 1px solid $grey_300
+            border-bottom 1px solid $grey_300
+            
+            .icon
+                width 12px
+                height 12px
+                margin-right 6px
+                fill currentColor
+            
+            
+    &__contacts
+        display table
+        width 100%
+        padding-top 16px
+        
+        &-row
+            display table-row
+            
+        &-icon
+            display table-cell
+            vertical-align top
+            width 40px
+            padding-top 10px
+            
+            .icon
+                width 16px
+                height 16px
+                fill currentColor
+            
+        &-text
+            display table-cell
+            vertical-align top
+            padding 8px 0
+            
+            
+    &__features
+        &-item
+            float left
+            
+            
+            &-block
+                width 120px
+                padding 10px
+                text-align center
+
+            &-icon
+                display inline-block
+                vertical-align top
+                margin-bottom 20px
+                width 50px
+                height 50px
+
+                .icon
+                    stroke $red_400
+
+            &-name
+                display block
+                height 30px
+                line-height 1.2
+                
+                
+    &__clients
+        &-item
+            float left
+            
+            &-photo
+                display inline-block
+                width 60px
+                height 60px
+                margin 3px
+                overflow hidden
+                border-radius 50%
+                
+                img
+                    width 100%
+                    height 100%
+            
+            
+    &__opinions
+        &-item
+            display inline-block
+            vertical-align top
+            padding 10px
+            margin 3px
+            background-color $white
+            mixin-material-shadow(1)
+            
+            
+    &__reviews
+        &-item
+            margin-top 30px
+            
+            &:first-child
+                margin-top 0
+                
+            &-photo
+                float left
+                width 50px
+                height 50px
+                margin-left 16px
+                overflow hidden
+                border-radius 50%
+                
+                img
+                    width 100%
+                    height 100%
+                    
+            &-data
+                margin-left 82px
+                
+            &-name
+                margin 3px 0
+                font-weight 700
+                
+            &-date
+                color $grey_500
+                
+            &-content
+                margin-top 16px
+                
+            &-likes
+                display inline-block
+                height 16px
+                margin-top 6px
+                padding 8px 16px
+                border-radius 16px
+                color $grey_500
+                mixin-material-shadow(1)
+                
+                .icon
+                    width 16px
+                    height 16px
+                    fill currentColor
+                    
+                small
+                    display inline-block
+                    vertical-align top
+                    margin 3px 0 0 6px
+                    
+        &-more
+            text-align center
+            margin 16px 0
+            
+            
+    .scroller.js-inited
+                
+        .scroller__container
+            padding 0 13px
+
+        .company__media-item,
+        .company__features-item,
+        .company__clients-item,
+        .affiche__item
+            display table-cell
+            float none
+
+        .companies__item
+            display table-cell
+            border none
+
+            &-card
+                width 290px
+                margin 3px
+                background-color $white
+                box-sizing border-box
+                mixin-material-shadow(1)

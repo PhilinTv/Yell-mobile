@@ -129,6 +129,13 @@ app.get('/category', function (req, res, next) {
     });
 });
 
+app.get('/company', function (req, res, next) {
+	res.render('company', {
+        company: require('./data/company'),
+        category: require('./data/category')
+    });
+});
+
 
 // Socet.IO
 io.on('connection', function (socket) {

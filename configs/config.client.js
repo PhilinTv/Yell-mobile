@@ -48,6 +48,12 @@ module.exports = {
         view: 'category.ect',
         deps: ['scroller', 'companies', 'categories', 'yandexMap']
     },
+    company: {
+        styles: ['company.styl'],
+        scripts: ['company.js'],
+        view: 'company.ect',
+        deps: ['scroller', 'tabs', 'stars', 'button', 'icon', 'events', 'affiche', 'companies']
+    },
     
     // Blocks
     svg: {

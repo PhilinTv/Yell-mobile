@@ -1,83 +1,20 @@
-var gulp = require('gulp'),
-    csso = require('gulp-csso'),
-    uglify = require('gulp-uglify'),
-    fs = require('fs'),
-    writefile = require('writefile'),
-    builder = require('./builder'),
-    buildFolder = 'build/';
+var gulp = require('gulp'), // Сообственно Gulp JS
+    stylus = require('gulp-stylus'), // Плагин для Stylus
+    csso = require('gulp-csso'), // Минификация CSS
+    imagemin = require('gulp-imagemin'), // Минификация изображений
+    uglify = require('gulp-uglify'), // Минификация JS
+    concat = require('gulp-concat'), // Склейка файлов
+    nib = require('nib');
 
 
-var buildStyles = function (name, files) {
-    var filePath = buildFolder + 'css/' + name + '.css',
-        contents = '';
-    
-    for (var i in files) {
-        for (var j in files[i]) {
-            contents += builder.renderFile(files[i][j]);
-        }
-    }
-    
-    writefile(filePath, contents, function (err) {
-        gulp.src(filePath)
-        //.pipe(csso())
-        .pipe(gulp.dest(buildFolder + 'css'));
-    });
-};
-
-
-var buildScripts = function (name, files) {
-    var filePath = buildFolder + 'js/' + name + '.js',
-        contents = '';
-    
-    for (var i in files) {
-        for (var j in files[i]) {
-            contents += builder.renderFile(files[i][j]);
-        }
-    }
-    
-    writefile(filePath, contents, function (err) {
-        gulp.src(filePath)
-        //.pipe(uglify())
-        .pipe(gulp.dest(buildFolder + 'js'));
-    });
-}
-
-
-var buildImg = function (files) {
-    var folder = buildFolder + 'img',
-        contents = '';
-    
-    for (var i in files) {
-        for (var j in files[i]) {
-            writefile(
-                folder + files[i][j].slice(files[i][j].lastIndexOf('/')),
-                fs.readFileSync(files[i][j]),
-                function (err) {}
-            );
-        }
-    }
-}
-
-
-gulp.task('build', function() {
-    var layouts = ['common'],
-        pages = ['index'];
-    
-    builder.setOptions({env: 'production'});
-    
-    layouts.forEach(function (name) {
-        var deps = builder.getDeps(name);
-        
-        buildStyles(name, deps.styles);
-        buildScripts(name, deps.scripts);
-        buildImg(deps.img);
-    });
-    
-    pages.forEach(function (name) {
-        var deps = builder.getDeps(name, layouts);
-        
-        buildStyles(name, deps.styles);
-        buildScripts(name, deps.scripts);
-        buildImg(deps.img);
-    });
+gulp.task('stylus', function() {
+    gulp.src(['./client/**/*.styl', '!./client/_addons/**/*.styl'])
+        .pipe(stylus({
+            include: ['./client/_addons/stylus/'],
+            import: ['variables', 'mixins', 'nib'],
+            use: nib()
+        })) // собираем stylus
+    .on('error', console.log) // Если есть ошибки, выводим и продолжаем
+    .pipe(csso()) // минимизируем css
+    .pipe(gulp.dest('./web/css/')); // записываем css
 });

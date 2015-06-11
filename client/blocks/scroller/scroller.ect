@@ -12,11 +12,9 @@
         <div class="scroller__content">
             <%- @scroller.content %>
         </div>
-        <% if @scroller.options.url : %>
-            <div class="scroller__spinner" ng-if="!isNoData">
-                <% include @scrollerDeps.views.spinner %>
-            </div>
-        <% end %>
+        <div class="scroller__spinner" ng-class="{'is-visible': config.url && !isNoData}">
+            <% include @scrollerDeps.views.spinner %>
+        </div>
     </div>
 </div>
 

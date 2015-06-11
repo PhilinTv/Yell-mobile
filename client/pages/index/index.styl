@@ -1,6 +1,6 @@
 .index
     &__section
-        margin 16px 0
+        margin 32px 0
         
         &_main
             display table
@@ -10,9 +10,6 @@
             color $white
             background url($dir-path + '/img/index__section_main.bg.png') 0 0 no-repeat
             background-size cover
-            
-            .heading_2
-                color inherit
                 
             .button
                 margin-top 80px
@@ -25,16 +22,6 @@
         &_scroller
             h2
                 padding 0 16px
-                
-            .scroller__container
-                padding 0 13px
-                
-            .categories__item,
-            .guides__item,
-            .videos__item,
-            .affiche__item
-                display table-cell
-                float none
                 
 
     &__search
@@ -61,3 +48,16 @@
         img
             width 100%
             margin 0
+            
+            
+    .scroller.js-inited
+                
+        .scroller__container
+            padding 0 13px
+
+        .categories__item,
+        .guides__item,
+        .videos__item,
+        .affiche__item
+            display table-cell
+            float none

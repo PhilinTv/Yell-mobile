@@ -1,0 +1,86 @@
+{
+    "media": [{
+        "type": "image",
+        "url": "http://image2.yell.ru/responses/5/6/9/rp_630908_zih1uql8qm7v3pelnfsv.jpg"
+    }, {
+        "type": "image",
+        "url": "http://image2.yell.ru/responses/2/8/4/rp_630908_gczf7lbld7ugg8ui3uck.jpg"
+    }, {
+        "type": "image",
+        "url": "http://image2.yell.ru/responses/4/3/0/rp_630908_4zl1y8klf7mkmr6t5fxr.jpg"
+    }, {
+        "type": "image",
+        "url": "http://image2.yell.ru/responses/3/5/7/rp_630908_d8nbqldn8bomxdzeylu9.jpg"
+    }, {
+        "type": "image",
+        "url": "http://image2.yell.ru/responses/5/5/1/rp_630908_840cv3v7yp0h4gmxdze3.jpg"
+    }, {
+        "type": "image",
+        "url": "http://image2.yell.ru/responses/6/6/5/rp_630908_l6s1cvz6x747pd93dy7a.jpg"
+    }],
+    "opinions": [
+        "Хорошее место",
+        "Вкусно готовят"
+    ],
+    "features": [{
+        "icon": "restaurants",
+        "name": "Резерв столов"
+    }, {
+        "icon": "shoping",
+        "name": "Знаменитые ди-джеи"
+    }, {
+        "icon": "auto",
+        "name": "Резерв столов"
+    }, {
+        "icon": "restaurants",
+        "name": "Резерв столов"
+    }, {
+        "icon": "shoping",
+        "name": "Знаменитые ди-джеи"
+    }, {
+        "icon": "auto",
+        "name": "Резерв столов"
+    }],
+    "clients": [{
+        "photo": "http://image2.yell.ru/avatar/5/4/7/p_1023887_or18zihjl9tgsnfnbjbv.jpg"
+    }, {
+        "photo": "http://image2.yell.ru/avatar/5/0/9/p_1049536_juikaltu3y3i7eqsijtr.jpg"
+    }, {
+        "photo": "http://image2.yell.ru/avatar/5/3/9/p_995601_ur7qmjtt20lq76oytny4.jpg"
+    }, {
+        "photo": "http://image2.yell.ru/avatar/2/6/3/p_1031473_201g33sl8p9vaptytdua.jpg"
+    }, {
+        "photo": "http://image2.yell.ru/avatar/4/0/4/p_1086529_cdph3fiih8oc0xq7abme.jpg"
+    }, {
+        "photo": "http://image2.yell.ru/avatar/2/6/9/p_938671_e8s2pibispk4tamylj6s.jpg"
+    }, {
+        "photo": "http://image2.yell.ru/avatar/6/2/5/p_983948_c76mvyuo1yd9f7zue69f.jpg"
+    }, {
+        "photo": "http://image2.yell.ru/avatar/1/7/2/p_1033851_h357yrk78kbye833lfa0.jpg"
+    }, {
+        "photo": "http://image2.yell.ru/avatar/1/0/3/p_938995_oqqedqiik88a2thjvo8u.jpg"
+    }, {
+        "photo": "http://image2.yell.ru/avatar/3/2/4/p_1019529_oukxrif1d0ifnqh71sxe.jpg"
+    }],
+    "reviews": [{
+        "user": {
+            "url": "",
+            "photo": "http://image2.yell.ru/avatar/5/4/7/p_1023887_or18zihjl9tgsnfnbjbv.jpg",
+            "name": "dudka_yu_v"
+        },
+        "rating": "5",
+        "date": "05 марта 2015",
+        "text": "Отличное место, побывав оджнажды с друзьями, теперь все наши вылазки в подобные места проходят именно здесь, хотя в Москве есть куча всего, но нам здесь очень нравится",
+        "likes": "7"
+    }, {
+        "user": {
+            "url": "",
+            "photo": "http://image2.yell.ru/avatar/5/0/9/p_1049536_juikaltu3y3i7eqsijtr.jpg",
+            "name": "Карина"
+        },
+        "rating": "4",
+        "date": "09 апреля 2015",
+        "text": "Приятное и уютное место, этакий chill out. Цены вполне себе нормальные, я при виде счета никогда за голову не хваталась))",
+        "likes": "18"
+    }]
+}
